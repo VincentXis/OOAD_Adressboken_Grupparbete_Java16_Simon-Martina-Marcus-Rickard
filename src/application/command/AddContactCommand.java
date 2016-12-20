@@ -1,5 +1,6 @@
 package application.command;
 
+import java.rmi.registry.Registry;
 import java.util.List;
 
 /**
@@ -31,6 +32,8 @@ public class AddContactCommand implements Command {
 
     @Override
     public void execute() {
+
+        Registry
 
     }
 }
