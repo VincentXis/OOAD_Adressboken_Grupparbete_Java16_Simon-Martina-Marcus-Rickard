@@ -2,9 +2,6 @@ package Register;
 
 import java.util.ArrayList;
 
-/**
- * Created by martina on 2016-12-20.
- */
 public class RemoteRegistry {
 
     ArrayList<Contact> remoteContactList = new ArrayList<Contact>();

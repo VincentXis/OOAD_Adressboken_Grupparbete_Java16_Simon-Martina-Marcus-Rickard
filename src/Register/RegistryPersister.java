@@ -3,23 +3,25 @@ package Register;
 import java.io.*;
 import java.util.ArrayList;
 
-/**
- * Created by MacsMac on 2016-12-20.
- */
 public class RegistryPersister {
 
-    Registry registry = new Registry();
+    Registry registry;
 
-    public void save(){
-        try(FileOutputStream fileOut = new FileOutputStream("contacts.ser");
-            ObjectOutputStream out = new ObjectOutputStream(fileOut)){
+    public RegistryPersister(Registry registry) {
+
+        this.registry = registry;
+    }
+
+    public void save() {
+        try (FileOutputStream fileOut = new FileOutputStream("contacts.ser");
+             ObjectOutputStream out = new ObjectOutputStream(fileOut)) {
             out.writeObject(registry.getContacts());
-        }catch (IOException e){
+        } catch (IOException e) {
             System.out.println("Could not save local contacts");
         }
     }
 
-    public void load(){
+    public void load() {
         ArrayList<Contact> contactList = new ArrayList<>();
         if (!(new File("contacts.ser").isFile())) {
             registry.load(contactList);
