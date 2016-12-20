@@ -1,8 +1,14 @@
 package application;
 
-public class CommandLineInterface implements InputHandler {
+import Register.Registry;
+import Register.RemoteRegistry;
+import application.command.Command;
 
-    private CommandInterpreter commandInterpreter = new CommandInterpreter();
+public class CommandLineInterface implements InputHandler {
+    private Registry registry = new Registry();
+    private RemoteRegistry remoteRegistry = new RemoteRegistry();
+
+    private CommandInterpreter commandInterpreter = new CommandInterpreter(registry,remoteRegistry);
 
     private Console console = new Console();
 
@@ -10,10 +16,9 @@ public class CommandLineInterface implements InputHandler {
         console.registerInputHandler(this);
     }
 
-
     @Override
     public void handle(CommandLine commandLine) {
-
-
+        Command command = commandInterpreter.interpret(commandLine);
+        command.execute();
     }
 }
