@@ -4,8 +4,8 @@ package application.command;
  * Created by PereZ on 2016-12-20.
  */
 public class QuitCommand implements Command {
-    String name = "Delete";
-    String decsription = "Delete a contact";
+    String name = "Quit";
+    String decsription = "Quit program";
 
     @Override
     public String getName() {
