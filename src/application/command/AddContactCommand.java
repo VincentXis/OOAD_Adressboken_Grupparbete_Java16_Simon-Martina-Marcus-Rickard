@@ -33,7 +33,5 @@ public class AddContactCommand implements Command {
     @Override
     public void execute() {
 
-        Registry
-
     }
 }
