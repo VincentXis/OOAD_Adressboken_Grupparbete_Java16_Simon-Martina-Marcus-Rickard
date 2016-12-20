@@ -1,22 +1,26 @@
 package application.command;
 
-import java.rmi.registry.Registry;
+import Register.Registry;
+import application.Console;
+import application.ConsolePrinter;
+
+import java.security.InvalidParameterException;
 import java.util.List;
 
 /**
  * Created by PereZ on 2016-12-20.
  */
 public class AddContactCommand implements Command {
-
+    Registry registry;
+    ConsolePrinter consolePrinter = new Console();
     String name = "Add";
     String decsription = "Adds a new contact";
 
     List<String> parameters;
 
     public AddContactCommand(Registry registry, List<String> parameters) {
-
+        this.registry = registry;
         this.parameters = parameters;
-
     }
 
 
@@ -31,8 +35,21 @@ public class AddContactCommand implements Command {
     }
 
     @Override
-    public void execute() {
+    public void execute() throws InvalidParameterException {
+        if (validate()) {
+            registry.addContact(parameters.get(0), parameters.get(1), parameters.get(2));
+            consolePrinter.print("Contact was added to registry");
+        } else {
+            consolePrinter.print("Add requires 3 parameters, received: " + parameters.size());
+            throw new InvalidParameterException("Add requires 3 parameters, received: " + parameters.size());
+        }
+    }
 
-
+    private boolean validate() {
+        if (parameters.size() == 3) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
