@@ -1,31 +1,35 @@
 package application;
 
-import application.command.AddContactCommand;
-import application.command.Command;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import application.command.*;
 
 public class CommandInterpreter {
 
-
     public Command interpret(CommandLine commandLine) {
-
         Command command;
-
-        switch (commandLine.getCommand()) {
-
-            case "add":
-                return command = new AddContactCommand(commandLine.getParameters());
-
-            try {
-                throw new Exception("InvalidCommandException");
-            } catch (Exception e) {
-                e.printStackTrace();
+        try {
+            switch (commandLine.getCommand()) {
+                case "add":
+                    command = new AddContactCommand(commandLine.getParameters());
+                    break;
+                case "delete":
+                    command = new DeleteContactCommand(commandLine.getParameters());
+                    break;
+                case "search":
+                    command = new SearchCommand(commandLine.getParameters());
+                    break;
+                case "list":
+                    command = new ListCommand();
+                    break;
+                case "help":
+                    command = new HelpCommand();
+                    break;
+                case "quit":
+                    command = new QuitCommand();
+                default:
+                    throw new Exception("InvalidCommandException");
             }
-
-
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
         return command;

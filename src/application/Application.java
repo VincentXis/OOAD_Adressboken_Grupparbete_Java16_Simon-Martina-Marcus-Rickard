@@ -2,11 +2,11 @@ package application;
 
 public class Application {
 
-    private InputHandler cli = new CommandLineInterface();
-    private Console console = new Console(cli);
+    private CommandLineInterface cli = new CommandLineInterface();
+
 
     public void start() {
-
+        cli.runCommandLineInterface();
     }
 
 }
