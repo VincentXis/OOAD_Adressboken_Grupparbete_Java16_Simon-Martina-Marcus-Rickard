@@ -1,6 +1,6 @@
 package Register;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class AtomicRemoteCatalogueProxy implements RemoteCatalogueProxy {
@@ -15,12 +15,11 @@ public class AtomicRemoteCatalogueProxy implements RemoteCatalogueProxy {
 
     public List<String> getContacts() {
 
-        List<String> catalogueContacts = new ArrayList<>();
-
         catalogueClient.connect();
         catalogueClient.sendRequest("getall");
         String response = catalogueClient.waitForResponse();
-        String[]
+        List<String> catalogueContacts = Arrays.asList(response.split("\\n"));
+
         catalogueClient.disconnect();
 
         return catalogueContacts;
