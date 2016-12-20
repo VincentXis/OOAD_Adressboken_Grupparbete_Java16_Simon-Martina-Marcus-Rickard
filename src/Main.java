@@ -5,6 +5,7 @@ public class Main {
         String abo = "Abooo";
 
         String King = "king";
+        String funka = " FUNKA!";
 
     }
 
