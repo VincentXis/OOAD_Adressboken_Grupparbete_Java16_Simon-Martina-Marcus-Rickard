@@ -2,9 +2,6 @@ package Register;
 
 import java.util.ArrayList;
 
-/**
- * Created by MacsMac on 2016-12-20.
- */
 public class Registry {
 
     private ArrayList<Contact> contactList = new ArrayList<>();
@@ -35,6 +32,8 @@ public class Registry {
             System.out.println("No contact found");
         }
     }
+
+// TODO: 2016-12-20 Gör om “No contact found” i delete-metoden
 
 
     public ArrayList<Contact> search(String term) {
