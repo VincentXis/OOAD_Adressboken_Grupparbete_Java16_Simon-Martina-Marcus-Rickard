@@ -6,7 +6,7 @@ import java.util.ArrayList;
 /**
  * Created by MacsMac on 2016-12-20.
  */
-public class Registry implements Serializable {
+public class Registry {
 
     private ArrayList<Contact> contactList = new ArrayList<>();
     private UniqueIdGenerator uniqueIdGenerator = new UniqueIdGenerator();

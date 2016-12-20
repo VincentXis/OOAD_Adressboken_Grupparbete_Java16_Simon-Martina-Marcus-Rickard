@@ -13,7 +13,7 @@ public class AddContactCommand implements Command {
 
     List<String> parameters;
 
-    public AddContactCommand(List<String> parameters) {
+    public AddContactCommand(Registry registry, List<String> parameters) {
 
         this.parameters = parameters;
 
@@ -32,6 +32,7 @@ public class AddContactCommand implements Command {
 
     @Override
     public void execute() {
+
 
     }
 }
