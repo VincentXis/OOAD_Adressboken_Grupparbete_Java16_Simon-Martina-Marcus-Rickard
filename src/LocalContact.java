@@ -12,7 +12,6 @@ public class LocalContact implements Contact {
         contactDetails.setFirstName(firstName);
         contactDetails.setLastName(lastName);
         contactDetails.setEmail(email);
-
     }
 
     public void setId(UUID id){

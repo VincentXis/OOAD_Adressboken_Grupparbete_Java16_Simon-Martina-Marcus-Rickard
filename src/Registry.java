@@ -7,9 +7,12 @@ import java.util.ArrayList;
 public class Registry implements Serializable {
 
     private ArrayList<Contact> contactList = new ArrayList<>();
+    private UniqueIdGenerator uniqueIdGenerator = new UniqueIdGenerator();
 
     public void addContact(String firstName, String lastName, String email) {
-        contactList.add(new LocalContact(firstName, lastName, email));
+        LocalContact contact = new LocalContact(firstName, lastName, email);
+        contact.setId(uniqueIdGenerator.generateUUID());
+        contactList.add(contact);
     }
 
     public ArrayList<Contact> getContacts() {
