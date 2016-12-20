@@ -1,25 +1,21 @@
-import java.util.UUID;
-
 /**
- * Created by MacsMac on 2016-12-20.
+ * Created by martina on 2016-12-20.
  */
-public class LocalContact implements Contact {
+public class RemoteContact implements Contact {
 
-    private UUID id;
+    private String id;
     private ContactDetails contactDetails = new ContactDetails();
 
-    public LocalContact(String firstName, String lastName, String email){
+    public RemoteContact(String id, String firstName, String lastName, String email) {
+        this.id = id;
         contactDetails.setFirstName(firstName);
         contactDetails.setLastName(lastName);
         contactDetails.setEmail(email);
     }
 
-    public void setId(UUID id){
-        this.id = id;
-    }
-
+    @Override
     public String getId() {
-        return id.toString();
+        return this.id;
     }
 
     @Override
@@ -29,7 +25,7 @@ public class LocalContact implements Contact {
 
     @Override
     public String getLastName() {
-        return contactDetails.getFirstName();
+        return contactDetails.getLastName();
     }
 
     @Override

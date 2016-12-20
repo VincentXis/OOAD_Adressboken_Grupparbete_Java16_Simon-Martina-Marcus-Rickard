@@ -1,7 +1,4 @@
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.logging.Level;
 
@@ -13,7 +10,12 @@ public class RegistryPersister {
     Registry registry = new Registry();
 
     public void save(){
-
+        try(FileOutputStream fileOut = new FileOutputStream("contacts.ser");
+            ObjectOutputStream out = new ObjectOutputStream(fileOut)){
+            out.writeObject(registry.getContacts());
+        }catch (IOException e){
+            System.out.println("Could not save local contacts");
+        }
     }
 
     public void load(){
