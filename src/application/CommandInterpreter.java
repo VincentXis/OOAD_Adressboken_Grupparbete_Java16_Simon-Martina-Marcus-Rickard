@@ -10,24 +10,24 @@ import java.util.List;
 public class CommandInterpreter {
 
 
-public Command interpret(CommandLine commandLine) {
+    public Command interpret(CommandLine commandLine) {
 
-    Command command;
+        Command command;
 
-    switch (commandLine.getCommand()){
+        switch (commandLine.getCommand()) {
 
-        case "add":
-           return command = new AddContactCommand(commandLine.getParameters());
+            case "add":
+                return command = new AddContactCommand(commandLine.getParameters());
 
-        try {
-            throw new Exception("InvalidCommandException");
-        } catch (Exception e) {
-            e.printStackTrace();
+            try {
+                throw new Exception("InvalidCommandException");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+
         }
 
-
+        return command;
     }
-
-    return command;
-}
 }
