@@ -28,7 +28,7 @@ public class Registry {
                 name = contact.getFirstName();
                 contactList.remove(contact);
                 foundMatch = true;
-                System.out.println(name + "was deletet");
+                System.out.println(name + "was deleted");
             }
         }
         if (!foundMatch) {

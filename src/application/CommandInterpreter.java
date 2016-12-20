@@ -26,7 +26,7 @@ public class CommandInterpreter {
                     return new SearchCommand(registry, remoteRegistry, commandLine.getParameters());
 
                 case "list":
-                    command = new ListCommand();
+                    command = new ListCommand(registry, remoteRegistry);
                     break;
                 case "help":
                     command = new HelpCommand();
