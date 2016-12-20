@@ -5,7 +5,8 @@ import application.command.*;
 public class CommandInterpreter {
 
     public Command interpret(CommandLine commandLine) {
-        Command command;
+
+        Command command = null;
         try {
             switch (commandLine.getCommand()) {
                 case "add":
