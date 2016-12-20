@@ -5,7 +5,11 @@ package Register;
  */
 public class AutoSave {
 
-    private RegistryPersister registryPersister = new RegistryPersister();
+    RegistryPersister registryPersister;
+
+    public AutoSave(RegistryPersister registryPersister) {
+        this.registryPersister = registryPersister;
+    }
 
     public void autoSave() {
         Thread autoSaveThread = new Thread(() -> {

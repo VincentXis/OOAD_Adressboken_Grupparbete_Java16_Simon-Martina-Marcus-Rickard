@@ -1,8 +1,5 @@
 package Register;
 
-/**
- * Created by MacsMac on 2016-12-20.
- */
 public class ContactDetails {
 
     private String firstName;
