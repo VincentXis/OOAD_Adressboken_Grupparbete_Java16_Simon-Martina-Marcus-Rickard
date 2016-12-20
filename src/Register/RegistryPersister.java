@@ -1,6 +1,7 @@
+package Register;
+
 import java.io.*;
 import java.util.ArrayList;
-import java.util.logging.Level;
 
 /**
  * Created by MacsMac on 2016-12-20.
