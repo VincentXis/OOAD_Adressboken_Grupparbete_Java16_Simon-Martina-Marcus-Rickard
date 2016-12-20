@@ -13,6 +13,11 @@ public class CommandInterpreter {
         this.remoteRegistry = remoteRegistry;
     }
 
+    /**
+     * FIXA RETURN!
+     * @param commandLine
+     * @return
+     */
     public Command interpret(CommandLine commandLine) {
 
         Command command = null;
