@@ -2,7 +2,7 @@ package Register;
 
 import java.util.List;
 
-public class RemoteCatalogueFactory implements RemoteCatalogueProxy {
+public class RemoteCatalogueFactory {
 
     private int defaultPort;
 
@@ -17,8 +17,4 @@ public class RemoteCatalogueFactory implements RemoteCatalogueProxy {
         atomicRemoteCatalogueProxy.getContacts();
     }
 
-    @Override
-    public List<String> getContacts() {
-        return null;
-    }
 }
