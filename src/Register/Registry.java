@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.logging.Logger;
 
 public class Registry {
+
     private static final Logger log = Logger.getLogger(Registry.class.getName());
 
     private ArrayList<Contact> contactList = new ArrayList<>();

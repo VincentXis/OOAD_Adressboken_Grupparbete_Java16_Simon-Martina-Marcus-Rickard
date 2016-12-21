@@ -4,6 +4,7 @@ import java.util.Scanner;
 import java.util.logging.Logger;
 
 public class Console implements ConsolePrinter {
+
     private static final Logger log = Logger.getLogger(Console.class.getName());
 
     public void registerInputHandler(InputHandler inputHandler) {
@@ -20,12 +21,10 @@ public class Console implements ConsolePrinter {
         }
     }
 
-
     @Override
     public void print(String output) {
         System.out.println(output);
     }
-
 
     private String readUserInput() {
         return new Scanner(System.in).nextLine();

@@ -5,7 +5,7 @@ package Register.fileManagement;
  */
 public class AutoSave {
 
-    RegistryPersister registryPersister;
+    private RegistryPersister registryPersister;
 
     public AutoSave(RegistryPersister registryPersister) {
         this.registryPersister = registryPersister;
@@ -20,7 +20,7 @@ public class AutoSave {
                         registryPersister.save();
                     }
                 } catch (InterruptedException e) {
-                    System.out.println("Autosave failed");
+                    System.out.println("Auto-save failed");
                 }
             }
         }).start();

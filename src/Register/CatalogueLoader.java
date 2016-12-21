@@ -10,7 +10,9 @@ import java.util.logging.Logger;
  * Created by martina on 2016-12-20.
  */
 public class CatalogueLoader {
+
     private static final Logger log = Logger.getLogger(CatalogueLoader.class.getName());
+
     private RemoteRegistry remoteRegistry;
 
     public CatalogueLoader(RemoteRegistry remoteRegistry) {
@@ -31,7 +33,7 @@ public class CatalogueLoader {
                 parsedContactInfo = rawContactData.split(" ");
                 remoteRegistry.add(parsedContactInfo[0], parsedContactInfo[1], parsedContactInfo[2], parsedContactInfo[3]);
             } catch (ArrayIndexOutOfBoundsException e) {
-                log.log(Level.SEVERE, "Could not create contacts from the remote catalogue data",e);
+                log.log(Level.SEVERE, "Could not create contacts from the remote catalogue data", e);
             }
         }
     }

@@ -1,6 +1,8 @@
 package application;
 
-import Register.*;
+import Register.CatalogueLoader;
+import Register.Registry;
+import Register.RemoteRegistry;
 import Register.fileManagement.AutoSave;
 import Register.fileManagement.RegistryPersister;
 import application.command.Command;
@@ -10,15 +12,17 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class CommandLineInterface implements InputHandler {
-    private static final Logger log = Logger.getLogger(CommandLineInterface.class.getName());
-    private Registry registry = new Registry();
-    private RemoteRegistry remoteRegistry = new RemoteRegistry();
-    private RegistryPersister registryPersister = new RegistryPersister(registry);
-    private AutoSave autoSave = new AutoSave(registryPersister);
 
-    private CommandInterpreter commandInterpreter = new CommandInterpreter(registry,remoteRegistry, registryPersister);
-    private Console console = new Console();
+    private static final Logger log = Logger.getLogger(CommandLineInterface.class.getName());
+
+    private Registry registry = new Registry();
+    private RegistryPersister registryPersister = new RegistryPersister(registry);
+    private RemoteRegistry remoteRegistry = new RemoteRegistry();
     private CatalogueLoader catalogueLoader = new CatalogueLoader(remoteRegistry);
+
+    private CommandInterpreter commandInterpreter = new CommandInterpreter(registry, remoteRegistry, registryPersister);
+    private Console console = new Console();
+    private AutoSave autoSave = new AutoSave(registryPersister);
 
 
     public void runCommandLineInterface() {

@@ -11,9 +11,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class RegistryPersister {
-    private static final Logger log = Logger.getLogger(RegistryPersister.class.getName());
-    private ConsolePrinter consolePrinter = new Console();
 
+    private static final Logger log = Logger.getLogger(RegistryPersister.class.getName());
+
+    private ConsolePrinter consolePrinter = new Console();
     private Registry registry;
 
     public RegistryPersister(Registry registry) {

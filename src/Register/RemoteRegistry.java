@@ -7,8 +7,7 @@ import java.util.ArrayList;
 
 public class RemoteRegistry {
 
-    ArrayList<Contact> remoteContactList = new ArrayList<Contact>();
-
+    private ArrayList<Contact> remoteContactList = new ArrayList<Contact>();
 
     public ArrayList<Contact> getContacts() {
         return remoteContactList;

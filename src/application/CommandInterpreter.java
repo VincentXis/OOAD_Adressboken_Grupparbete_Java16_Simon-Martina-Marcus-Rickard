@@ -1,14 +1,14 @@
 package application;
 
 import Register.Registry;
-import Register.fileManagement.RegistryPersister;
 import Register.RemoteRegistry;
+import Register.fileManagement.RegistryPersister;
 import application.command.*;
 
 public class CommandInterpreter {
+
     private Registry registry;
     private RemoteRegistry remoteRegistry;
-
     private RegistryPersister registryPersister;
 
     public CommandInterpreter(Registry registry, RemoteRegistry remoteRegistry, RegistryPersister registryPersister) {
