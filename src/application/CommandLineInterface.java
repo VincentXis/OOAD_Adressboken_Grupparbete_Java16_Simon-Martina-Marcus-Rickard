@@ -9,7 +9,7 @@ public class CommandLineInterface implements InputHandler {
     private RegistryPersister registryPersister = new RegistryPersister(registry);
     private AutoSave autoSave = new AutoSave(registryPersister);
     private Application application;
-    private CommandInterpreter commandInterpreter = new CommandInterpreter(registry,remoteRegistry, application);
+    private CommandInterpreter commandInterpreter = new CommandInterpreter(registry,remoteRegistry, application, registryPersister);
     private Console console = new Console();
     private CatalogueLoader catalogueLoader = new CatalogueLoader(remoteRegistry);
 

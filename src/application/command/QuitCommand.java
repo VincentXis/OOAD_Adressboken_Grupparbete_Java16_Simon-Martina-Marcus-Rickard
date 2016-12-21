@@ -1,5 +1,6 @@
 package application.command;
 
+import Register.RegistryPersister;
 import application.Application;
 
 /**
@@ -9,9 +10,11 @@ public class QuitCommand implements Command {
     private String name = "Quit";
     private String description = "Quit program";
     private Application application;
+    private RegistryPersister registryPersister;
 
-    public QuitCommand(Application application) {
+    public QuitCommand(Application application, RegistryPersister registryPersister) {
         this.application = application;
+        this.registryPersister = registryPersister;
     }
 
     @Override
@@ -26,6 +29,7 @@ public class QuitCommand implements Command {
 
     @Override
     public void execute() {
+        registryPersister.save();
         application.quit();
     }
 }

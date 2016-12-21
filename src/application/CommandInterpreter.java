@@ -1,6 +1,7 @@
 package application;
 
 import Register.Registry;
+import Register.RegistryPersister;
 import Register.RemoteRegistry;
 import application.command.*;
 
@@ -8,11 +9,13 @@ public class CommandInterpreter {
     private Registry registry;
     private RemoteRegistry remoteRegistry;
     private Application application;
+    private RegistryPersister registryPersister;
 
-    public CommandInterpreter(Registry registry, RemoteRegistry remoteRegistry, Application application) {
+    public CommandInterpreter(Registry registry, RemoteRegistry remoteRegistry, Application application, RegistryPersister registryPersister) {
         this.registry = registry;
         this.remoteRegistry = remoteRegistry;
         this.application = application;
+        this.registryPersister = registryPersister;
     }
 
 
@@ -35,7 +38,7 @@ public class CommandInterpreter {
                 command = new HelpCommand();
                 break;
             case "quit":
-                command = new QuitCommand(application);
+                command = new QuitCommand(application, registryPersister);
                 break;
             default:
                 throw new Exception("InvalidCommandException");
