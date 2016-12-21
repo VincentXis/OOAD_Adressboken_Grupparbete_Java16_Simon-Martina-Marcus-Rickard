@@ -8,11 +8,11 @@ public class RegistryPersister {
     Registry registry;
 
     public RegistryPersister(Registry registry) {
-
         this.registry = registry;
+        load();
     }
 
-    public void save() {
+    public synchronized void save() {
         try (FileOutputStream fileOut = new FileOutputStream("contacts.ser");
              ObjectOutputStream out = new ObjectOutputStream(fileOut)) {
             out.writeObject(registry.getContacts());
