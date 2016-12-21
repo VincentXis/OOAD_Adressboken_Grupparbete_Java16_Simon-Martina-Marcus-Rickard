@@ -11,6 +11,7 @@ import java.util.List;
  * Created by PereZ on 2016-12-20.
  */
 public class DeleteContactCommand implements Command {
+
     private String name = "Delete";
     private String description = "Delete a contact";
 
@@ -18,14 +19,13 @@ public class DeleteContactCommand implements Command {
     private Registry registry;
     private ConsolePrinter consolePrinter = new Console();
 
-    public DeleteContactCommand(Registry registry, List<String> parameters){
+    public DeleteContactCommand(Registry registry, List<String> parameters) {
         this.registry = registry;
         this.parameters = parameters;
     }
 
     public DeleteContactCommand() {
     }
-
 
 
     @Override
@@ -47,6 +47,7 @@ public class DeleteContactCommand implements Command {
             throw new InvalidParameterException("Delete requires 1 parameter, received: " + parameters.size());
         }
     }
+
     private boolean validate() {
         if (parameters.size() == 1) {
             return true;

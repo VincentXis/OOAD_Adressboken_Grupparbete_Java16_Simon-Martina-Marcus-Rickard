@@ -1,8 +1,8 @@
 package application.command;
 
-import Register.contact.Contact;
 import Register.Registry;
 import Register.RemoteRegistry;
+import Register.contact.Contact;
 import application.Console;
 import application.ConsolePrinter;
 
@@ -14,11 +14,16 @@ import java.util.List;
  * Created by PereZ on 2016-12-20.
  */
 public class ListCommand implements Command {
+
+    private String name = "List";
+    private String description = "Show contactlist";
+
     private Registry registry;
     private RemoteRegistry remoteRegistry;
+    private ContactListSorter cls = new ContactListSorter();
+
     private ConsolePrinter consolePrinter = new Console();
     private ContactFormatter cf = new ContactFormatter();
-    private ContactListSorter cls = new ContactListSorter();
 
     public ListCommand(Registry registry, RemoteRegistry remoteRegistry) {
         this.registry = registry;
@@ -27,9 +32,6 @@ public class ListCommand implements Command {
 
     public ListCommand() {
     }
-
-    String name = "List";
-    String description = "Show contactlist";
 
     @Override
     public String getName() {

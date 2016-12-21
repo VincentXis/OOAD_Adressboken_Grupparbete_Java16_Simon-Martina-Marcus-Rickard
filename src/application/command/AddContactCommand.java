@@ -11,8 +11,10 @@ import java.util.List;
  * Created by PereZ on 2016-12-20.
  */
 public class AddContactCommand implements Command {
+
     private String name = "Add";
     private String description = "Adds a new contact";
+
     private List<String> parameters;
     private Registry registry;
     private ConsolePrinter consolePrinter = new Console();

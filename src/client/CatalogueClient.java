@@ -1,7 +1,5 @@
 package client;
 
-import application.*;
-
 import java.io.*;
 import java.net.Socket;
 import java.util.logging.Level;
@@ -55,7 +53,7 @@ public class CatalogueClient {
             }
             log.info("Data was received from the server");
         } catch (IOException | NullPointerException e) {
-            log.log(Level.SEVERE,"failed to receive a response from the server", e);
+            log.log(Level.SEVERE, "failed to receive a response from the server", e);
         }
         return response;
     }
@@ -65,7 +63,7 @@ public class CatalogueClient {
         try {
             socket.close();
         } catch (IOException | NullPointerException e) {
-            log.log(Level.SEVERE,"Failed to close socket: ", e);
+            log.log(Level.SEVERE, "Failed to close socket: ", e);
         }
 
     }

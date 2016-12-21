@@ -1,8 +1,8 @@
 package application.command;
 
-import Register.contact.Contact;
 import Register.Registry;
 import Register.RemoteRegistry;
+import Register.contact.Contact;
 import application.Console;
 import application.ConsolePrinter;
 
@@ -16,7 +16,9 @@ import java.util.logging.Logger;
  * Created by PereZ on 2016-12-20.
  */
 public class SearchCommand implements Command {
+
     private static final Logger log = Logger.getLogger(SearchCommand.class.getName());
+
     private String name = "Search";
     private String description = "Search for contacts";
 
@@ -49,14 +51,17 @@ public class SearchCommand implements Command {
 
     public void execute() throws InvalidParameterException {
         List<Contact> searchResult = new ArrayList<>();
+
         if (validate()) {
             searchResult.addAll(registry.search(parameters.get(0)));
+
             try {
                 searchResult.addAll(remoteRegistry.search(parameters.get(0)));
             } catch (Exception e) {
-                log.log(Level.SEVERE,"ERROR ", e);
+                log.log(Level.SEVERE, "ERROR ", e);
             }
             searchResult = cls.sort(searchResult);
+
             if (searchResult.isEmpty()) {
                 consolePrinter.print("No search result found for: " + parameters.get(0));
             } else {

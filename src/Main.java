@@ -13,6 +13,7 @@ public class Main {
         loggerSetup();
         new Application().start();
     }
+
     private static void loggerSetup() {
         String loggingFilePath = "src/logs/logging.properties";
         try (FileInputStream is = new FileInputStream(loggingFilePath)) {

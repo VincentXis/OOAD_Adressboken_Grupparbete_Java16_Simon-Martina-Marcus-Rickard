@@ -11,7 +11,7 @@ public class AtomicRemoteCatalogueProxy implements RemoteCatalogueProxy {
     private static final Logger log = Logger.getLogger(Console.class.getName());
     private CatalogueClient catalogueClient = new CatalogueClient();
 
-    AtomicRemoteCatalogueProxy(String host, int port) {
+    public AtomicRemoteCatalogueProxy(String host, int port) {
 
         catalogueClient.setHost(host);
         catalogueClient.setPort(port);

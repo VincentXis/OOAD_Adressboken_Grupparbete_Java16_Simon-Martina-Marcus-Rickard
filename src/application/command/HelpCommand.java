@@ -10,12 +10,12 @@ public class HelpCommand implements Command {
 
     private String name = "Help";
     private String description = "Show help menu";
+
     private ConsolePrinter consolePrinter = new Console();
 
     private String format(Command command) {
         return String.format("%-8s%s", command.getName(), command.getDescription());
     }
-
 
     @Override
     public String getName() {

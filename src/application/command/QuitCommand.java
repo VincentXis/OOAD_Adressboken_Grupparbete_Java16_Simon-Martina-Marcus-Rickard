@@ -11,7 +11,9 @@ import java.util.logging.Logger;
  * Created by PereZ on 2016-12-20.
  */
 public class QuitCommand implements Command {
+
     private static final Logger log = Logger.getLogger(QuitCommand.class.getName());
+
     private String name = "Quit";
     private String description = "Quit program";
 
