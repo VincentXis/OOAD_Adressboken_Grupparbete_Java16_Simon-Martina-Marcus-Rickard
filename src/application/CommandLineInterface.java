@@ -20,6 +20,7 @@ public class CommandLineInterface implements InputHandler {
     }
 
     public void runCommandLineInterface() {
+        console.print("Welcome!");
         catalogueLoader.run();
         autoSave.autoSave();
         console.registerInputHandler(this);

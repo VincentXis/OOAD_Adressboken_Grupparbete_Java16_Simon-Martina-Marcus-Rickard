@@ -56,8 +56,13 @@ public class SearchCommand implements Command {
 
             }
             searchResult = cls.sort(searchResult);
-            for (Contact contact : searchResult) {
-                consolePrinter.print(cf.format(contact));
+            if(searchResult.isEmpty()){
+                consolePrinter.print("No search result found for: "+ parameters.get(0));
+            }
+            else{
+                for (Contact contact : searchResult) {
+                    consolePrinter.print(cf.format(contact));
+                }
             }
         } else {
             consolePrinter.print("Search requires 1 parameter, received: " + parameters.size());
