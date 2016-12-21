@@ -21,6 +21,7 @@ public class CommandLineInterface implements InputHandler {
     }
 
     public void runCommandLineInterface() {
+        autoSave.autoSave();
         console.registerInputHandler(this);
     }
 
