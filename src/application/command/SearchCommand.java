@@ -9,12 +9,14 @@ import application.ConsolePrinter;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by PereZ on 2016-12-20.
  */
 public class SearchCommand implements Command {
-
+    private static final Logger log = Logger.getLogger(SearchCommand.class.getName());
     private String name = "Search";
     private String description = "Search for contacts";
 
@@ -51,19 +53,18 @@ public class SearchCommand implements Command {
             searchResult.addAll(registry.search(parameters.get(0)));
             try {
                 searchResult.addAll(remoteRegistry.search(parameters.get(0)));
-
             } catch (Exception e) {
-
+                log.log(Level.SEVERE,"ERROR ", e);
             }
             searchResult = cls.sort(searchResult);
-            if(searchResult.isEmpty()){
-                consolePrinter.print("No search result found for: "+ parameters.get(0));
-            }
-            else{
+            if (searchResult.isEmpty()) {
+                consolePrinter.print("No search result found for: " + parameters.get(0));
+            } else {
                 for (Contact contact : searchResult) {
                     consolePrinter.print(cf.format(contact));
                 }
             }
+            log.fine(searchResult.size() + "contact/s found");
         } else {
             consolePrinter.print("Search requires 1 parameter, received: " + parameters.size());
             throw new InvalidParameterException("Search requires 1 parameter, received: " + parameters.size());
