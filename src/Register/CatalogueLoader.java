@@ -14,7 +14,7 @@ public class CatalogueLoader {
     }
 
     public void run(){
-        RemoteCatalogueFactory remoteCatalogueFactory = new RemoteCatalogueFactory(1616, this);
+        RemoteCatalogueFactory remoteCatalogueFactory = new RemoteCatalogueFactory(61616, this);
         new Thread(() -> {
             remoteCatalogueFactory.create("localhost");
         }).start();
