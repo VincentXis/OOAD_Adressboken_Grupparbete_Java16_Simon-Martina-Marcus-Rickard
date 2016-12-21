@@ -18,7 +18,6 @@ public class AutoSave {
                     synchronized (this) {
                         Thread.sleep(5_000);
                         registryPersister.save();
-                        System.out.println("wawa");
                     }
                 } catch (InterruptedException e) {
                     System.out.println("Autosave failed");

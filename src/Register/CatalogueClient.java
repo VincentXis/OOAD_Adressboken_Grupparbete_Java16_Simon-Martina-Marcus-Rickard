@@ -19,7 +19,6 @@ public class CatalogueClient {
     private int port;
 
     public void connect() {
-
         try {
             socket = new Socket(host, port);
         } catch (IOException e) {
