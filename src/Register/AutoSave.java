@@ -12,7 +12,7 @@ public class AutoSave {
     }
 
     public void autoSave() {
-        Thread autoSaveThread = new Thread(() -> {
+        new Thread(() -> {
             while (true) {
                 try {
                     synchronized (this) {
@@ -23,7 +23,6 @@ public class AutoSave {
                     System.out.println("Autosave failed");
                 }
             }
-        });
-        autoSaveThread.start();
+        }).start();
     }
 }

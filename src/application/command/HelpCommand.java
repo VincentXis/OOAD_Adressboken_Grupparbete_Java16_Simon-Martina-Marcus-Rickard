@@ -1,25 +1,34 @@
 package application.command;
 
+import application.Console;
+import application.ConsolePrinter;
+
 /**
  * Created by PereZ on 2016-12-20.
  */
-public class HelpCommand implements Command{
+public class HelpCommand implements Command {
 
-    String name = "Help";
-    String decsription = "Show help menu";
+    private String name = "Help";
+    private String description = "Show help menu";
+    private ConsolePrinter consolePrinter = new Console();
+
+    private String format(Command command) {
+        return String.format("%s\t%s", command.getName(), command.getDescription());
+    }
+
 
     @Override
     public String getName() {
-        return null;
+        return name;
     }
 
     @Override
     public String getDescription() {
-        return null;
+        return description;
     }
 
     @Override
     public void execute() {
-
+        new HelpMenu().getCommands().forEach(command -> consolePrinter.print(format(command)));
     }
 }
