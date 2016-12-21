@@ -14,16 +14,19 @@ public class DeleteContactCommand implements Command {
     Registry registry;
     ConsolePrinter consolePrinter = new Console();
     String name = "Delete";
-    String decsription = "Delete a contact";
+    String description = "Delete a contact";
 
     List<String> parameters;
 
-    public DeleteContactCommand(List<String> parameters){
+    public DeleteContactCommand(Registry registry, List<String> parameters){
+        this.registry = registry;
         this.parameters = parameters;
     }
 
     public DeleteContactCommand() {
     }
+
+
 
     @Override
     public String getName() {
@@ -32,7 +35,7 @@ public class DeleteContactCommand implements Command {
 
     @Override
     public String getDescription() {
-        return decsription;
+        return description;
     }
 
     @Override
