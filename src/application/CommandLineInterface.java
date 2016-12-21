@@ -5,6 +5,8 @@ import Register.fileManagement.AutoSave;
 import Register.fileManagement.RegistryPersister;
 import application.command.Command;
 
+import java.security.InvalidParameterException;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class CommandLineInterface implements InputHandler {
@@ -20,7 +22,6 @@ public class CommandLineInterface implements InputHandler {
 
 
     public void runCommandLineInterface() {
-
         console.print("Welcome!");
         catalogueLoader.run();
         autoSave.autoSave();
@@ -32,8 +33,12 @@ public class CommandLineInterface implements InputHandler {
         try {
             Command command = commandInterpreter.interpret(commandLine);
             command.execute();
+            log.info("Given command was successfully executed");
+        } catch (InvalidParameterException e) {
+            log.log(Level.SEVERE, "An exception was thrown: ", e);
         } catch (Exception e) {
-            e.printStackTrace();
+            log.log(Level.SEVERE, "An exception was thrown: ", e);
+            console.print("Invalid command: " + commandLine.getCommand());
         }
     }
 }
