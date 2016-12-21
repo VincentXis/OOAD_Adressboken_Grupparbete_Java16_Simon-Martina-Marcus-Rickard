@@ -13,7 +13,7 @@ public class HelpCommand implements Command {
     private ConsolePrinter consolePrinter = new Console();
 
     private String format(Command command) {
-        return String.format("%s\t%s", command.getName(), command.getDescription());
+        return String.format("%-8s%s", command.getName(), command.getDescription());
     }
 
 

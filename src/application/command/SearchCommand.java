@@ -49,7 +49,12 @@ public class SearchCommand implements Command {
         List<Contact> searchResult = new ArrayList<>();
         if (validate()) {
             searchResult.addAll(registry.search(parameters.get(0)));
-            searchResult.addAll(remoteRegistry.search(parameters.get(0)));
+            try {
+                searchResult.addAll(remoteRegistry.search(parameters.get(0)));
+
+            } catch (Exception e) {
+
+            }
             searchResult = cls.sort(searchResult);
             for (Contact contact : searchResult) {
                 consolePrinter.print(cf.format(contact));

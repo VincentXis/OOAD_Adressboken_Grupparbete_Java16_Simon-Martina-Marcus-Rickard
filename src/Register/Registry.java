@@ -27,7 +27,6 @@ public class Registry {
             if (contact.getId().toString().equals(id)) {
                 name = contact.getFirstName();
                 contactList.remove(contact);
-
                 consolePrinter.print(name + " was deleted");
                 return;
             }

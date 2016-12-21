@@ -41,14 +41,12 @@ public class CatalogueClient {
     public String waitForResponse() {
 
         String response = "";
-
         try {
             InputStream inputStream = socket.getInputStream();
             InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
             for (String line = bufferedReader.readLine(); !line.equals(""); line = bufferedReader.readLine()) {
-
                 response += line + "\n";
             }
         } catch (IOException e) {
@@ -58,7 +56,6 @@ public class CatalogueClient {
     }
 
     public void disconnect() {
-
         sendRequest("exit");
         try {
             socket.close();

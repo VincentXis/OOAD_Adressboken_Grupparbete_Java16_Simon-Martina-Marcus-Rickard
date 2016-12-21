@@ -23,7 +23,6 @@ public class CatalogueLoader {
     public void loadRemoteContacts(List<String> remoteContacts) {
         String[] parsedContactInfo;
         for (String rawContactData : remoteContacts) {
-            System.out.println(rawContactData + "wawa");
             parsedContactInfo = rawContactData.split(" ");
             remoteRegistry.add(parsedContactInfo[0], parsedContactInfo[1], parsedContactInfo[2], parsedContactInfo[3]);
         }

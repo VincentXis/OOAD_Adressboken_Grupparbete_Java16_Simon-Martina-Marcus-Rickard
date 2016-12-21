@@ -29,7 +29,7 @@ public class LocalContact implements Contact, Serializable {
 
     @Override
     public String getLastName() {
-        return contactDetails.getFirstName();
+        return contactDetails.getLastName();
     }
 
     @Override
