@@ -11,12 +11,12 @@ import java.util.List;
  * Created by PereZ on 2016-12-20.
  */
 public class DeleteContactCommand implements Command {
-    Registry registry;
-    ConsolePrinter consolePrinter = new Console();
-    String name = "Delete";
-    String description = "Delete a contact";
+    private String name = "Delete";
+    private String description = "Delete a contact";
 
-    List<String> parameters;
+    private List<String> parameters;
+    private Registry registry;
+    private ConsolePrinter consolePrinter = new Console();
 
     public DeleteContactCommand(Registry registry, List<String> parameters){
         this.registry = registry;

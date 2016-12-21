@@ -14,17 +14,17 @@ import java.util.List;
  * Created by PereZ on 2016-12-20.
  */
 public class SearchCommand implements Command {
-    Registry registry;
-    RemoteRegistry remoteRegistry;
-    ConsolePrinter consolePrinter = new Console();
-    ContactFormatter cf = new ContactFormatter();
-    ContactListSorter cls = new ContactListSorter();
 
+    private String name = "Search";
+    private String description = "Search for contacts";
 
-    String name = "Search";
-    String decsription = "Search for contacts";
+    private Registry registry;
+    private RemoteRegistry remoteRegistry;
+    private List<String> parameters;
 
-    List<String> parameters;
+    private ConsolePrinter consolePrinter = new Console();
+    private ContactFormatter cf = new ContactFormatter();
+    private ContactListSorter cls = new ContactListSorter();
 
     public SearchCommand(Registry registry, RemoteRegistry remoteRegistry, List<String> parameters) {
         this.registry = registry;
@@ -42,7 +42,7 @@ public class SearchCommand implements Command {
 
     @Override
     public String getDescription() {
-        return decsription;
+        return description;
     }
 
     public void execute() throws InvalidParameterException {

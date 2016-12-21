@@ -14,11 +14,11 @@ import java.util.List;
  * Created by PereZ on 2016-12-20.
  */
 public class ListCommand implements Command {
-    Registry registry;
-    RemoteRegistry remoteRegistry;
-    ConsolePrinter consolePrinter = new Console();
-    ContactFormatter cf = new ContactFormatter();
-    ContactListSorter cls = new ContactListSorter();
+    private Registry registry;
+    private RemoteRegistry remoteRegistry;
+    private ConsolePrinter consolePrinter = new Console();
+    private ContactFormatter cf = new ContactFormatter();
+    private ContactListSorter cls = new ContactListSorter();
 
     public ListCommand(Registry registry, RemoteRegistry remoteRegistry) {
         this.registry = registry;

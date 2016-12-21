@@ -1,13 +1,17 @@
 package application.command;
 
+import application.Application;
+
 /**
  * Created by PereZ on 2016-12-20.
  */
 public class QuitCommand implements Command {
-    String name = "Quit";
-    String decsription = "Quit program";
+    private String name = "Quit";
+    private String description = "Quit program";
+    private Application application;
 
-    public QuitCommand() {
+    public QuitCommand(Application application) {
+        this.application = application;
     }
 
     @Override
@@ -17,11 +21,11 @@ public class QuitCommand implements Command {
 
     @Override
     public String getDescription() {
-        return decsription;
+        return description;
     }
 
     @Override
     public void execute() {
-
+        application.quit();
     }
 }

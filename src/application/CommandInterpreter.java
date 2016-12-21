@@ -7,10 +7,12 @@ import application.command.*;
 public class CommandInterpreter {
     private Registry registry;
     private RemoteRegistry remoteRegistry;
+    private Application application;
 
-    public CommandInterpreter(Registry registry, RemoteRegistry remoteRegistry) {
+    public CommandInterpreter(Registry registry, RemoteRegistry remoteRegistry, Application application) {
         this.registry = registry;
         this.remoteRegistry = remoteRegistry;
+        this.application = application;
     }
 
 
@@ -33,7 +35,7 @@ public class CommandInterpreter {
                 command = new HelpCommand();
                 break;
             case "quit":
-                command = new QuitCommand();
+                command = new QuitCommand(application);
                 break;
             default:
                 throw new Exception("InvalidCommandException");

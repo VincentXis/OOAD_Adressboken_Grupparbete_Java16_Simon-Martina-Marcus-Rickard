@@ -4,13 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HelpMenu {
+
+    private List<Command> commands = new ArrayList<>();
+
     public HelpMenu() {
         build();
     }
 
-    private List<Command> commands = new ArrayList<>();
-
-    private void build(){
+    private void build() {
         commands.add(new AddContactCommand());
         commands.add(new DeleteContactCommand());
         commands.add(new SearchCommand());
