@@ -28,11 +28,10 @@ public class CatalogueClient {
 
     public void sendRequest(String request) {
 
-        try (OutputStream outputStream = socket.getOutputStream();
-             PrintWriter printWriter = new PrintWriter(outputStream)) {
-
+        try {
+            OutputStream outputStream = socket.getOutputStream();
+            PrintWriter printWriter = new PrintWriter(outputStream, true);
             printWriter.println(request);
-
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -49,19 +48,23 @@ public class CatalogueClient {
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
             for (String line = bufferedReader.readLine(); !line.equals(""); line = bufferedReader.readLine()) {
+
                 response += line + "\n";
             }
-
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return response;
     }
 
     public void disconnect() {
 
         sendRequest("exit");
+        try {
+            socket.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 }
