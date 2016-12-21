@@ -1,11 +1,15 @@
 package Register;
 
+import application.Console;
+import application.ConsolePrinter;
+
 import java.util.ArrayList;
 
 public class Registry {
 
     private ArrayList<Contact> contactList = new ArrayList<>();
     private UniqueIdGenerator uniqueIdGenerator = new UniqueIdGenerator();
+    private ConsolePrinter consolePrinter = new Console();
 
     public void addContact(String firstName, String lastName, String email) {
         LocalContact contact = new LocalContact(firstName, lastName, email);
@@ -25,16 +29,13 @@ public class Registry {
                 name = contact.getFirstName();
                 contactList.remove(contact);
                 foundMatch = true;
-                System.out.println(name + "was deleted");
+                consolePrinter.print(name + " was deleted");
             }
         }
         if (!foundMatch) {
-            System.out.println("No contact found");
+            consolePrinter.print("No contacts found matching id: " + id);
         }
     }
-
-// TODO: 2016-12-20 Gör om “No contact found” i delete-metoden
-
 
     public ArrayList<Contact> search(String term) {
         ArrayList<Contact> searchResult = new ArrayList<>();

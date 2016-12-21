@@ -1,11 +1,15 @@
 package Register;
 
+import application.*;
+import application.Console;
+
 import java.io.*;
 import java.util.ArrayList;
 
 public class RegistryPersister {
+    private ConsolePrinter consolePrinter = new Console();
 
-    Registry registry;
+    private Registry registry;
 
     public RegistryPersister(Registry registry) {
         this.registry = registry;
@@ -17,7 +21,7 @@ public class RegistryPersister {
              ObjectOutputStream out = new ObjectOutputStream(fileOut)) {
             out.writeObject(registry.getContacts());
         } catch (IOException e) {
-            System.out.println("Could not save local contacts");
+            consolePrinter.print("Could not save local contacts");
         }
     }
 
@@ -30,7 +34,7 @@ public class RegistryPersister {
                  ObjectInputStream in = new ObjectInputStream(fileIn)) {
                 contactList = (ArrayList<Contact>) in.readObject();
             } catch (IOException | ClassNotFoundException e) {
-                System.out.println("Could not load local contacts");
+                consolePrinter.print("Could not lode local contacts");
             }
             registry.load(contactList);
         }
