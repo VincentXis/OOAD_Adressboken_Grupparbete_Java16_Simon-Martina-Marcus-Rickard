@@ -1,6 +1,8 @@
 package Register;
 
-public class ContactDetails {
+import java.io.Serializable;
+
+public class ContactDetails implements Serializable{
 
     private String firstName;
     private String lastName;
