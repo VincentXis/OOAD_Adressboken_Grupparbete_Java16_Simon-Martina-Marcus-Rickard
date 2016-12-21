@@ -11,16 +11,16 @@ import application.ConsolePrinter;
 public class QuitCommand implements Command {
     private String name = "Quit";
     private String description = "Quit program";
-    private Application application;
+
     private RegistryPersister registryPersister;
     private ConsolePrinter consolePrinter = new Console();
 
-    public QuitCommand(){
+    public QuitCommand() {
 
     }
 
-    public QuitCommand(Application application, RegistryPersister registryPersister) {
-        this.application = application;
+    public QuitCommand(RegistryPersister registryPersister) {
+
         this.registryPersister = registryPersister;
     }
 
@@ -38,6 +38,6 @@ public class QuitCommand implements Command {
     public void execute() {
         registryPersister.save();
         consolePrinter.print("Goodbye!");
-        application.quit();
+        new Application().quit();
     }
 }

@@ -8,14 +8,13 @@ public class CommandLineInterface implements InputHandler {
     private RemoteRegistry remoteRegistry = new RemoteRegistry();
     private RegistryPersister registryPersister = new RegistryPersister(registry);
     private AutoSave autoSave = new AutoSave(registryPersister);
-    private Application application;
-    private CommandInterpreter commandInterpreter = new CommandInterpreter(registry,remoteRegistry, application, registryPersister);
+
+    private CommandInterpreter commandInterpreter = new CommandInterpreter(registry,remoteRegistry, registryPersister);
     private Console console = new Console();
     private CatalogueLoader catalogueLoader = new CatalogueLoader(remoteRegistry);
 
 
-    public CommandLineInterface(Application application) {
-        this.application = application;
+    public CommandLineInterface() {
     }
 
     public void runCommandLineInterface() {

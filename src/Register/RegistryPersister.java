@@ -22,6 +22,7 @@ public class RegistryPersister {
             out.writeObject(registry.getContacts());
         } catch (IOException e) {
             consolePrinter.print("Could not save local contacts");
+            e.printStackTrace();
         }
     }
 
