@@ -5,10 +5,13 @@ import application.Application;
 import application.Console;
 import application.ConsolePrinter;
 
+import java.util.logging.Logger;
+
 /**
  * Created by PereZ on 2016-12-20.
  */
 public class QuitCommand implements Command {
+    private static final Logger log = Logger.getLogger(QuitCommand.class.getName());
     private String name = "Quit";
     private String description = "Quit program";
 
@@ -20,7 +23,6 @@ public class QuitCommand implements Command {
     }
 
     public QuitCommand(RegistryPersister registryPersister) {
-
         this.registryPersister = registryPersister;
     }
 
@@ -36,6 +38,7 @@ public class QuitCommand implements Command {
 
     @Override
     public void execute() {
+        log.info("Saving local contacts");
         registryPersister.save();
         consolePrinter.print("Goodbye!");
         new Application().quit();
