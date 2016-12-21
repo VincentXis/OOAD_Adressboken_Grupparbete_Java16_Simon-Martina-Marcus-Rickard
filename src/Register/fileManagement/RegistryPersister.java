@@ -28,7 +28,8 @@ public class RegistryPersister {
         }
     }
 
-    public void load() {
+    @SuppressWarnings("unchecked")
+    private void load() {
         ArrayList<Contact> contactList = new ArrayList<>();
         if (!(new File("contacts.ser").isFile())) {
             registry.load(contactList);
