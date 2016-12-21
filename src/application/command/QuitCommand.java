@@ -2,6 +2,8 @@ package application.command;
 
 import Register.RegistryPersister;
 import application.Application;
+import application.Console;
+import application.ConsolePrinter;
 
 /**
  * Created by PereZ on 2016-12-20.
@@ -11,6 +13,7 @@ public class QuitCommand implements Command {
     private String description = "Quit program";
     private Application application;
     private RegistryPersister registryPersister;
+    private ConsolePrinter consolePrinter = new Console();
 
     public QuitCommand(Application application, RegistryPersister registryPersister) {
         this.application = application;
@@ -30,6 +33,7 @@ public class QuitCommand implements Command {
     @Override
     public void execute() {
         registryPersister.save();
+        consolePrinter.print("Goodbye!");
         application.quit();
     }
 }
