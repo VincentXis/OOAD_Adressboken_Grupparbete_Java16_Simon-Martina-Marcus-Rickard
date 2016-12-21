@@ -14,7 +14,7 @@ public class Main {
         new Application().start();
     }
     private static void loggerSetup() {
-        String loggingFilePath = "logs/logging.properties";
+        String loggingFilePath = "src/logs/logging.properties";
         try (FileInputStream is = new FileInputStream(loggingFilePath)) {
             LogManager.getLogManager().readConfiguration(is);
         } catch (IOException e) {

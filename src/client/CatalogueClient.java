@@ -36,7 +36,7 @@ public class CatalogueClient {
             OutputStream outputStream = socket.getOutputStream();
             PrintWriter printWriter = new PrintWriter(outputStream, true);
             printWriter.println(request);
-        } catch (IOException e) {
+        } catch (IOException | NullPointerException e) {
             log.log(Level.SEVERE, "Request failed ", e);
         }
 
@@ -54,7 +54,7 @@ public class CatalogueClient {
                 response += line + "\n";
             }
             log.info("Data was received from the server");
-        } catch (IOException e) {
+        } catch (IOException | NullPointerException e) {
             log.log(Level.SEVERE,"failed to receive a response from the server", e);
         }
         return response;
@@ -64,7 +64,7 @@ public class CatalogueClient {
         sendRequest("exit");
         try {
             socket.close();
-        } catch (IOException e) {
+        } catch (IOException | NullPointerException e) {
             log.log(Level.SEVERE,"Failed to close socket: ", e);
         }
 
