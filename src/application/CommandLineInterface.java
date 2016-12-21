@@ -18,7 +18,11 @@ public class CommandLineInterface implements InputHandler {
 
     @Override
     public void handle(CommandLine commandLine) {
-        Command command = commandInterpreter.interpret(commandLine);
-        command.execute();
+        try {
+            Command command = commandInterpreter.interpret(commandLine);
+            command.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

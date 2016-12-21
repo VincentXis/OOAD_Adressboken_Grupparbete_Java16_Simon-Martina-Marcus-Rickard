@@ -8,28 +8,26 @@ public class CommandInterpreter {
     private Registry registry = new Registry();
     private RemoteRegistry remoteRegistry = new RemoteRegistry();
 
-    public CommandInterpreter(Registry registry,RemoteRegistry remoteRegistry){
+    public CommandInterpreter(Registry registry, RemoteRegistry remoteRegistry) {
         this.registry = registry;
         this.remoteRegistry = remoteRegistry;
     }
 
-    /**
-     * FIXA RETURN!
-     * @param commandLine
-     * @return
-     */
-    public Command interpret(CommandLine commandLine) {
+
+    public Command interpret(CommandLine commandLine) throws Exception {
 
         Command command = null;
         try {
             switch (commandLine.getCommand()) {
                 case "add":
-                    return new AddContactCommand(registry, commandLine.getParameters());
+                    command = new AddContactCommand(registry, commandLine.getParameters());
+                    break;
                 case "delete":
-                    return new DeleteContactCommand(commandLine.getParameters());
+                    command = new DeleteContactCommand(commandLine.getParameters());
+                    break;
                 case "search":
-                    return new SearchCommand(registry, remoteRegistry, commandLine.getParameters());
-
+                    command = new SearchCommand(registry, remoteRegistry, commandLine.getParameters());
+                    break;
                 case "list":
                     command = new ListCommand(registry, remoteRegistry);
                     break;
@@ -38,6 +36,7 @@ public class CommandInterpreter {
                     break;
                 case "quit":
                     command = new QuitCommand();
+                    break;
                 default:
                     throw new Exception("InvalidCommandException");
             }
