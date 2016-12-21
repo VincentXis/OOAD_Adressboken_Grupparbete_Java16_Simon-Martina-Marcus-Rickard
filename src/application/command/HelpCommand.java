@@ -6,16 +6,16 @@ package application.command;
 public class HelpCommand implements Command{
 
     String name = "Help";
-    String decsription = "Show help menu";
+    String description = "Show help menu";
 
     @Override
     public String getName() {
-        return null;
+        return name;
     }
 
     @Override
     public String getDescription() {
-        return null;
+        return description;
     }
 
     @Override
