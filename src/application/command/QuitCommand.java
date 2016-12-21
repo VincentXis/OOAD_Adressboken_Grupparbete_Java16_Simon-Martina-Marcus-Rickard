@@ -15,6 +15,10 @@ public class QuitCommand implements Command {
     private RegistryPersister registryPersister;
     private ConsolePrinter consolePrinter = new Console();
 
+    public QuitCommand(){
+
+    }
+
     public QuitCommand(Application application, RegistryPersister registryPersister) {
         this.application = application;
         this.registryPersister = registryPersister;
