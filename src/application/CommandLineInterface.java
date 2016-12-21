@@ -5,7 +5,10 @@ import Register.fileManagement.AutoSave;
 import Register.fileManagement.RegistryPersister;
 import application.command.Command;
 
+import java.util.logging.Logger;
+
 public class CommandLineInterface implements InputHandler {
+    private static final Logger log = Logger.getLogger(CommandLineInterface.class.getName());
     private Registry registry = new Registry();
     private RemoteRegistry remoteRegistry = new RemoteRegistry();
     private RegistryPersister registryPersister = new RegistryPersister(registry);
@@ -16,10 +19,8 @@ public class CommandLineInterface implements InputHandler {
     private CatalogueLoader catalogueLoader = new CatalogueLoader(remoteRegistry);
 
 
-    public CommandLineInterface() {
-    }
-
     public void runCommandLineInterface() {
+
         console.print("Welcome!");
         catalogueLoader.run();
         autoSave.autoSave();
