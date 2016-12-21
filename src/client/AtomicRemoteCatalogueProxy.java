@@ -1,10 +1,14 @@
 package client;
 
+import application.Console;
+
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class AtomicRemoteCatalogueProxy implements RemoteCatalogueProxy {
 
+    private static final Logger log = Logger.getLogger(Console.class.getName());
     private CatalogueClient catalogueClient = new CatalogueClient();
 
     AtomicRemoteCatalogueProxy(String host, int port) {
@@ -14,7 +18,7 @@ public class AtomicRemoteCatalogueProxy implements RemoteCatalogueProxy {
     }
 
     public List<String> getContacts() {
-
+        log.info("Connecting to server");
         catalogueClient.connect();
         catalogueClient.sendRequest("getall");
         String response = catalogueClient.waitForResponse();
