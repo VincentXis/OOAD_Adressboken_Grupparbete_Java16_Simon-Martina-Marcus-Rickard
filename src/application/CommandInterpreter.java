@@ -1,7 +1,7 @@
 package application;
 
 import Register.Registry;
-import Register.RegistryPersister;
+import Register.fileManagement.RegistryPersister;
 import Register.RemoteRegistry;
 import application.command.*;
 

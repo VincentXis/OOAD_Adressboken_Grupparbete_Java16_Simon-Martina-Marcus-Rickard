@@ -1,4 +1,4 @@
-package Register;
+package Register.contact;
 
 public interface Contact {
     String getId();

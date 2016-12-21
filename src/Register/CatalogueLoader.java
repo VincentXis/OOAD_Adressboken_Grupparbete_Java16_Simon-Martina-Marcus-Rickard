@@ -1,5 +1,7 @@
 package Register;
 
+import client.RemoteCatalogueFactory;
+
 import java.util.List;
 
 /**

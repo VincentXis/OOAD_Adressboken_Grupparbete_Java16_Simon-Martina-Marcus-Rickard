@@ -1,6 +1,6 @@
 package application.command;
 
-import Register.RegistryPersister;
+import Register.fileManagement.RegistryPersister;
 import application.Application;
 import application.Console;
 import application.ConsolePrinter;

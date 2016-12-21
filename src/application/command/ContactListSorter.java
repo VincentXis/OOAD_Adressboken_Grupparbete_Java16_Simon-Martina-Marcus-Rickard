@@ -1,6 +1,6 @@
 package application.command;
 
-import Register.Contact;
+import Register.contact.Contact;
 
 import java.util.Comparator;
 import java.util.List;

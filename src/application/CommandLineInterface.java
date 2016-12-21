@@ -1,6 +1,8 @@
 package application;
 
 import Register.*;
+import Register.fileManagement.AutoSave;
+import Register.fileManagement.RegistryPersister;
 import application.command.Command;
 
 public class CommandLineInterface implements InputHandler {

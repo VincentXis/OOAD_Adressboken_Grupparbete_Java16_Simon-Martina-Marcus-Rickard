@@ -1,6 +1,6 @@
 package application.command;
 
-import Register.Contact;
+import Register.contact.Contact;
 import Register.Registry;
 import Register.RemoteRegistry;
 import application.Console;

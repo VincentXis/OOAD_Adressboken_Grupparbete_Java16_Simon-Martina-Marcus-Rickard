@@ -1,6 +1,6 @@
 package application.command;
 
-import Register.Contact;
+import Register.contact.Contact;
 
 public class ContactFormatter {
     public String format(Contact contact){

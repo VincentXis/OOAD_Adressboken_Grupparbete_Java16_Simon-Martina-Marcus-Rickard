@@ -1,4 +1,6 @@
-package Register;
+package client;
+
+import Register.CatalogueLoader;
 
 public class RemoteCatalogueFactory {
 

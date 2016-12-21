@@ -1,4 +1,4 @@
-package Register;
+package Register.contact;
 
 public class RemoteContact implements Contact {
 
