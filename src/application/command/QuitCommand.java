@@ -7,14 +7,17 @@ public class QuitCommand implements Command {
     String name = "Quit";
     String decsription = "Quit program";
 
+    public QuitCommand() {
+    }
+
     @Override
     public String getName() {
-        return null;
+        return name;
     }
 
     @Override
     public String getDescription() {
-        return null;
+        return decsription;
     }
 
     @Override

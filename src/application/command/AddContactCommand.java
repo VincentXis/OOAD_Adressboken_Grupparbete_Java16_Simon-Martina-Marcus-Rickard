@@ -14,7 +14,7 @@ public class AddContactCommand implements Command {
     Registry registry;
     ConsolePrinter consolePrinter = new Console();
     String name = "Add";
-    String decsription = "Adds a new contact";
+    String description = "Adds a new contact";
 
     List<String> parameters;
 
@@ -23,6 +23,8 @@ public class AddContactCommand implements Command {
         this.parameters = parameters;
     }
 
+    public AddContactCommand() {
+    }
 
     @Override
     public String getName() {
@@ -31,7 +33,7 @@ public class AddContactCommand implements Command {
 
     @Override
     public String getDescription() {
-        return this.decsription;
+        return this.description;
     }
 
     @Override

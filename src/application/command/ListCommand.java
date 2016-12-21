@@ -25,6 +25,9 @@ public class ListCommand implements Command {
         this.remoteRegistry = remoteRegistry;
     }
 
+    public ListCommand() {
+    }
+
     String name = "List";
     String description = "Show contactlist";
 
