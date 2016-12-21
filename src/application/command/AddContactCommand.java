@@ -11,18 +11,19 @@ import java.util.List;
  * Created by PereZ on 2016-12-20.
  */
 public class AddContactCommand implements Command {
-    Registry registry;
-    ConsolePrinter consolePrinter = new Console();
-    String name = "Add";
-    String decsription = "Adds a new contact";
-
-    List<String> parameters;
+    private String name = "Add";
+    private String description = "Adds a new contact";
+    private List<String> parameters;
+    private Registry registry;
+    private ConsolePrinter consolePrinter = new Console();
 
     public AddContactCommand(Registry registry, List<String> parameters) {
         this.registry = registry;
         this.parameters = parameters;
     }
 
+    public AddContactCommand() {
+    }
 
     @Override
     public String getName() {
@@ -31,7 +32,7 @@ public class AddContactCommand implements Command {
 
     @Override
     public String getDescription() {
-        return this.decsription;
+        return this.description;
     }
 
     @Override
