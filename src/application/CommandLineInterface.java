@@ -1,19 +1,17 @@
 package application;
 
-import Register.AutoSave;
-import Register.Registry;
-import Register.RegistryPersister;
-import Register.RemoteRegistry;
+import Register.*;
 import application.command.Command;
 
 public class CommandLineInterface implements InputHandler {
     private Registry registry = new Registry();
+    private RemoteRegistry remoteRegistry = new RemoteRegistry();
     private RegistryPersister registryPersister = new RegistryPersister(registry);
     private AutoSave autoSave = new AutoSave(registryPersister);
-    private RemoteRegistry remoteRegistry = new RemoteRegistry();
     private Application application;
     private CommandInterpreter commandInterpreter = new CommandInterpreter(registry,remoteRegistry, application);
     private Console console = new Console();
+    private CatalogueLoader catalogueLoader = new CatalogueLoader(remoteRegistry);
 
 
     public CommandLineInterface(Application application) {
@@ -21,6 +19,7 @@ public class CommandLineInterface implements InputHandler {
     }
 
     public void runCommandLineInterface() {
+        catalogueLoader.run();
         autoSave.autoSave();
         console.registerInputHandler(this);
     }
