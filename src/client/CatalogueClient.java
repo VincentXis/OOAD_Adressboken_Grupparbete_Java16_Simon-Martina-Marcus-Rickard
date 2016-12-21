@@ -1,10 +1,14 @@
 package client;
 
+import application.*;
+
 import java.io.*;
 import java.net.Socket;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class CatalogueClient {
-
+    private static final Logger log = Logger.getLogger(CatalogueClient.class.getName());
     private Socket socket;
 
     public void setHost(String host) {
@@ -22,7 +26,7 @@ public class CatalogueClient {
         try {
             socket = new Socket(host, port);
         } catch (IOException e) {
-            e.printStackTrace();
+            log.log(Level.SEVERE, "Failed to connect to server: " + host + " port number: " + port);
         }
     }
 
@@ -33,7 +37,7 @@ public class CatalogueClient {
             PrintWriter printWriter = new PrintWriter(outputStream, true);
             printWriter.println(request);
         } catch (IOException e) {
-            e.printStackTrace();
+            log.log(Level.SEVERE, "Request failed ", e);
         }
 
     }
@@ -49,8 +53,9 @@ public class CatalogueClient {
             for (String line = bufferedReader.readLine(); !line.equals(""); line = bufferedReader.readLine()) {
                 response += line + "\n";
             }
+            log.info("Data was received from the server");
         } catch (IOException e) {
-            e.printStackTrace();
+            log.log(Level.SEVERE,"failed to receive a response from the server", e);
         }
         return response;
     }
@@ -60,7 +65,7 @@ public class CatalogueClient {
         try {
             socket.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            log.log(Level.SEVERE,"Failed to close socket: ", e);
         }
 
     }
