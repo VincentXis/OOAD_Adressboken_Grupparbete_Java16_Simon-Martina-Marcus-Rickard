@@ -25,6 +25,7 @@ public class RegistryPersister {
     public synchronized void save() {
         try (FileOutputStream fileOut = new FileOutputStream("contacts.ser");
              ObjectOutputStream out = new ObjectOutputStream(fileOut)) {
+
             out.writeObject(registry.getContacts());
         } catch (IOException e) {
             consolePrinter.print("Could not save local contacts");
@@ -39,8 +40,10 @@ public class RegistryPersister {
         } else {
             try (FileInputStream fileIn = new FileInputStream("contacts.ser");
                  ObjectInputStream in = new ObjectInputStream(fileIn)) {
+
                 contactList = (ArrayList<Contact>) in.readObject();
                 log.info("Contact/s were successfully loaded from file");
+
             } catch (IOException | ClassNotFoundException e) {
                 consolePrinter.print("Could not lode local contacts");
                 log.log(Level.SEVERE, "Could not load contacts from file: ", e);

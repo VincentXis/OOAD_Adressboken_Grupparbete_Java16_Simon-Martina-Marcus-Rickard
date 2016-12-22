@@ -10,7 +10,9 @@ import java.util.logging.Logger;
  * Created by MacsMac on 2016-12-20.
  */
 public class AutoSave {
+
     private static final Logger log = Logger.getLogger(AutoSave.class.getName());
+
     private RegistryPersister registryPersister;
     private ConsolePrinter consolePrinter = new Console();
 
@@ -27,7 +29,7 @@ public class AutoSave {
                         registryPersister.save();
                     }
                 } catch (InterruptedException e) {
-                    log.log(Level.SEVERE,"Auto-save failed",e);
+                    log.log(Level.SEVERE, "Auto-save failed", e);
                     consolePrinter.print("Auto-save failed");
                 }
             }
