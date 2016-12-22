@@ -6,6 +6,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class CatalogueClient {
+
     private static final Logger log = Logger.getLogger(CatalogueClient.class.getName());
     private Socket socket;
 
@@ -29,7 +30,6 @@ public class CatalogueClient {
     }
 
     public void sendRequest(String request) {
-
         try {
             OutputStream outputStream = socket.getOutputStream();
             PrintWriter printWriter = new PrintWriter(outputStream, true);
@@ -37,11 +37,9 @@ public class CatalogueClient {
         } catch (IOException | NullPointerException e) {
             log.log(Level.SEVERE, "Request failed ", e);
         }
-
     }
 
     public String waitForResponse() {
-
         String response = "";
         try {
             InputStream inputStream = socket.getInputStream();
@@ -65,6 +63,5 @@ public class CatalogueClient {
         } catch (IOException | NullPointerException e) {
             log.log(Level.SEVERE, "Failed to close socket: ", e);
         }
-
     }
 }

@@ -19,7 +19,6 @@ public class CommandInterpreter {
         this.application = application;
     }
 
-
     public Command interpret(CommandLine commandLine) throws Exception {
         Command command;
         switch (commandLine.getCommand()) {
