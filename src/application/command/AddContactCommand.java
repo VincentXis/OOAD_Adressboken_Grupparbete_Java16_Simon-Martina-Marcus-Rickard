@@ -12,9 +12,6 @@ import java.util.List;
  */
 public class AddContactCommand implements Command {
 
-    private String name = "Add";
-    private String description = "Adds a new contact";
-
     private List<String> parameters;
     private Registry registry;
     private ConsolePrinter consolePrinter = new Console();
@@ -29,12 +26,12 @@ public class AddContactCommand implements Command {
 
     @Override
     public String getName() {
-        return this.name;
+        return "Add";
     }
 
     @Override
     public String getDescription() {
-        return this.description;
+        return "Adds a new contact";
     }
 
     @Override

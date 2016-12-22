@@ -3,6 +3,7 @@ package application.command;
 import Register.contact.Contact;
 
 public class ContactFormatter {
+
     public String format(Contact contact) {
         return String.format("ID: %s\nName: %s, %s\nEmail: %s\n",
                 contact.getId(),
