@@ -1,10 +1,15 @@
 package application;
 
+import application.command.QuitCommand;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class CommandLine {
+    private static final Logger log = Logger.getLogger(CommandLine.class.getName());
 
     private String command;
     private List<String> parameters;
@@ -15,14 +20,17 @@ public class CommandLine {
     }
 
     public static CommandLine parse(String userInput) {
-        String[] parseInput = userInput.split(" ");
-
-        String inputCommand = parseInput[0];
+        String inputCommand = "";
         List<String> inputParameters = new ArrayList<>();
+
         try {
+
+            String[] parseInput = userInput.split(" ");
+            inputCommand = parseInput[0];
+
             inputParameters.addAll(Arrays.asList(parseInput).subList(1, parseInput.length));
         } catch (IndexOutOfBoundsException e) {
-            e.printStackTrace();
+            log.log(Level.SEVERE, "Invalid input", e);
         }
         return new CommandLine(inputCommand, inputParameters);
     }
