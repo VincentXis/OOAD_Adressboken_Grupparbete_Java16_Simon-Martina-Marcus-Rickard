@@ -1,10 +1,12 @@
-package application.command;
+package command;
 
 import Register.Registry;
 import Register.RemoteRegistry;
 import Register.contact.Contact;
 import application.Console;
 import application.ConsolePrinter;
+import command.commandUtilityClasses.ContactFormatter;
+import command.commandUtilityClasses.ContactListSorter;
 
 import java.security.InvalidParameterException;
 import java.util.ArrayList;

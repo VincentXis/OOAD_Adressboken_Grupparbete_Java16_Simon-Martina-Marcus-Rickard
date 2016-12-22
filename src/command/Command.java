@@ -1,4 +1,4 @@
-package application.command;
+package command;
 
 /**
  * Created by PereZ on 2016-12-20.

@@ -1,6 +1,6 @@
-package application.command;
+package command;
 
-import Register.fileManagement.RegistryPersister;
+import Register.contactFileManagement.RegistryPersister;
 import application.Application;
 import application.Console;
 import application.ConsolePrinter;

@@ -1,4 +1,4 @@
-package application.command;
+package command;
 
 import Register.Registry;
 import application.Console;
@@ -10,43 +10,42 @@ import java.util.List;
 /**
  * Created by PereZ on 2016-12-20.
  */
-public class AddContactCommand implements Command {
+public class DeleteContactCommand implements Command {
 
     private List<String> parameters;
     private Registry registry;
     private ConsolePrinter consolePrinter = new Console();
 
-    public AddContactCommand(Registry registry, List<String> parameters) {
+    public DeleteContactCommand(Registry registry, List<String> parameters) {
         this.registry = registry;
         this.parameters = parameters;
     }
 
-    public AddContactCommand() {
+    public DeleteContactCommand() {
     }
 
     @Override
     public String getName() {
-        return "Add";
+        return "Delete";
     }
 
     @Override
     public String getDescription() {
-        return "Adds a new contact";
+        return "Delete a contact";
     }
 
     @Override
     public void execute() throws InvalidParameterException {
         if (validate()) {
-            registry.addContact(parameters.get(0), parameters.get(1), parameters.get(2));
-            consolePrinter.print("Contact was added to registry");
+            registry.deleteContact(parameters.get(0));
         } else {
-            consolePrinter.print("Add requires 3 parameters, received: " + parameters.size());
-            throw new InvalidParameterException("Add requires 3 parameters, received: " + parameters.size());
+            consolePrinter.print("Delete requires 1 parameter, received: " + parameters.size());
+            throw new InvalidParameterException("Delete requires 1 parameter, received: " + parameters.size());
         }
     }
 
     private boolean validate() {
-        if (parameters.size() == 3) {
+        if (parameters.size() == 1) {
             return true;
         } else {
             return false;

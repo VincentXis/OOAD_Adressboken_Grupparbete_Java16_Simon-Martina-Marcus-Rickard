@@ -1,4 +1,6 @@
-package application.command;
+package command.commandUtilityClasses;
+
+import command.*;
 
 import java.util.ArrayList;
 import java.util.List;

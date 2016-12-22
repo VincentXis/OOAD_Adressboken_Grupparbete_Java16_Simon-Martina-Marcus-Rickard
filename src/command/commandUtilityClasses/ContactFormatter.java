@@ -1,4 +1,4 @@
-package application.command;
+package command.commandUtilityClasses;
 
 import Register.contact.Contact;
 

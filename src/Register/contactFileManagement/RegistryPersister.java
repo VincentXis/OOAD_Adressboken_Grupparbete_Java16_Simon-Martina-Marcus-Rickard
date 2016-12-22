@@ -1,4 +1,4 @@
-package Register.fileManagement;
+package Register.contactFileManagement;
 
 import Register.Registry;
 import Register.contact.Contact;

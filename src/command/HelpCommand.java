@@ -1,7 +1,8 @@
-package application.command;
+package command;
 
 import application.Console;
 import application.ConsolePrinter;
+import command.commandUtilityClasses.HelpMenu;
 
 /**
  * Created by PereZ on 2016-12-20.
