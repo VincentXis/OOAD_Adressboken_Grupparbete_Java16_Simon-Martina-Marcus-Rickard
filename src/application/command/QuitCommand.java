@@ -41,6 +41,7 @@ public class QuitCommand implements Command {
     @Override
     public void execute() {
         log.info("Saving local contacts");
+        consolePrinter.print("Saving all local contacts");
         registryPersister.save();
         consolePrinter.print("Goodbye!");
         new Application().quit();
