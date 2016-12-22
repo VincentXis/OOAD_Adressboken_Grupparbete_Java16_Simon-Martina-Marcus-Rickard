@@ -62,12 +62,16 @@ public class SearchCommand implements Command {
             }
             searchResult = cls.sort(searchResult);
 
-            if (searchResult.isEmpty()) {
-                consolePrinter.print("No search result found for: " + parameters.get(0));
-            } else {
+            if (!searchResult.isEmpty()) {
                 for (Contact contact : searchResult) {
                     consolePrinter.print(cf.format(contact));
                 }
+                consolePrinter.print(String.format("Local contacts: %d\nExternal contacts: %d",
+                        registry.search(parameters.get(0)).size(),
+                        remoteRegistry.search(parameters.get(0)).size())
+                );
+            } else {
+                consolePrinter.print("No search result found for: " + parameters.get(0));
             }
             log.fine(searchResult.size() + "contact/s found");
         } else {
