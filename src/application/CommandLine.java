@@ -1,7 +1,5 @@
 package application;
 
-import application.command.QuitCommand;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -9,6 +7,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class CommandLine {
+
     private static final Logger log = Logger.getLogger(CommandLine.class.getName());
 
     private String command;
@@ -24,7 +23,6 @@ public class CommandLine {
         List<String> inputParameters = new ArrayList<>();
 
         try {
-
             String[] parseInput = userInput.split(" ");
             inputCommand = parseInput[0];
 
