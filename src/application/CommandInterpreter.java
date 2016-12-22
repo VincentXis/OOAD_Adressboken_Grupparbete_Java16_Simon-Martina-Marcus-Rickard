@@ -1,8 +1,8 @@
 package application;
 
-import Register.Registry;
-import Register.RemoteRegistry;
-import Register.registryFileManagement.RegistryPersister;
+import register.Registry;
+import register.RemoteRegistry;
+import register.registryFileManagement.RegistryPersister;
 import command.*;
 
 public class CommandInterpreter {

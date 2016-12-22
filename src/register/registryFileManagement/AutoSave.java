@@ -1,4 +1,4 @@
-package Register.registryFileManagement;
+package register.registryFileManagement;
 
 import application.Console;
 import application.ConsolePrinter;

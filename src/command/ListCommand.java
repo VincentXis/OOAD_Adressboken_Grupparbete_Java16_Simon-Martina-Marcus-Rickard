@@ -1,7 +1,7 @@
 package command;
 
-import Register.Registry;
-import Register.RemoteRegistry;
+import register.Registry;
+import register.RemoteRegistry;
 import contact.Contact;
 import application.Console;
 import application.ConsolePrinter;

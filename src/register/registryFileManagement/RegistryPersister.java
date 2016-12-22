@@ -1,6 +1,6 @@
-package Register.registryFileManagement;
+package register.registryFileManagement;
 
-import Register.Registry;
+import register.Registry;
 import contact.Contact;
 import application.*;
 import application.Console;

@@ -1,10 +1,10 @@
 package application;
 
-import Register.CatalogueLoader;
-import Register.Registry;
-import Register.RemoteRegistry;
-import Register.registryFileManagement.AutoSave;
-import Register.registryFileManagement.RegistryPersister;
+import register.CatalogueLoader;
+import register.Registry;
+import register.RemoteRegistry;
+import register.registryFileManagement.AutoSave;
+import register.registryFileManagement.RegistryPersister;
 import command.Command;
 
 import java.security.InvalidParameterException;

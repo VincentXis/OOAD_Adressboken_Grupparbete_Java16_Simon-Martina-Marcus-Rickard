@@ -1,4 +1,4 @@
-package Register;
+package register;
 
 import contact.Contact;
 import contact.RemoteContact;

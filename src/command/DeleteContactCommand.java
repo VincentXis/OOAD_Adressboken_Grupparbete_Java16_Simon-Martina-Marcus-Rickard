@@ -1,6 +1,6 @@
 package command;
 
-import Register.Registry;
+import register.Registry;
 import application.Console;
 import application.ConsolePrinter;
 
