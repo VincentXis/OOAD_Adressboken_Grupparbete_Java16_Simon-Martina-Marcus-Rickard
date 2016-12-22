@@ -30,7 +30,7 @@ public class Registry {
     public void deleteContact(String id) {
         String name;
         for (Contact contact : contactList) {
-            if (contact.getId().toString().equals(id)) {
+            if (contact.getId().equals(id)) {
                 name = contact.getFirstName();
                 contactList.remove(contact);
                 consolePrinter.print(name + " was deleted");
@@ -42,11 +42,11 @@ public class Registry {
         log.fine("No contact with id: " + id + "was found");
     }
 
-    public ArrayList<Contact> search(String term) {
+    public ArrayList<Contact> search(String query) {
         ArrayList<Contact> searchResult = new ArrayList<>();
         for (Contact contact : contactList) {
-            if (contact.getFirstName().toLowerCase().startsWith(term.toLowerCase()) ||
-                    contact.getLastName().toLowerCase().startsWith(term.toLowerCase())) {
+            if (contact.getFirstName().toLowerCase().startsWith(query.toLowerCase()) ||
+                    contact.getLastName().toLowerCase().startsWith(query.toLowerCase())) {
                 searchResult.add(contact);
             }
         }
