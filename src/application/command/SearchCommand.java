@@ -51,10 +51,8 @@ public class SearchCommand implements Command {
 
     public void execute() throws InvalidParameterException {
         List<Contact> searchResult = new ArrayList<>();
-
         if (validate()) {
             searchResult.addAll(registry.search(parameters.get(0)));
-
             try {
                 searchResult.addAll(remoteRegistry.search(parameters.get(0)));
             } catch (Exception e) {
