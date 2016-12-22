@@ -73,7 +73,6 @@ public class SearchCommand implements Command {
     }
 
     public void execute() throws InvalidParameterException {
-
         if (validate()) {
             getSearchResult();
             showSearchResult();
