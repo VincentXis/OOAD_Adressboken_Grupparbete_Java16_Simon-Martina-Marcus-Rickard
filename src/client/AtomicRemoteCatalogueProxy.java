@@ -12,7 +12,6 @@ public class AtomicRemoteCatalogueProxy implements RemoteCatalogueProxy {
     private CatalogueClient catalogueClient = new CatalogueClient();
 
     public AtomicRemoteCatalogueProxy(String host, int port) {
-
         catalogueClient.setHost(host);
         catalogueClient.setPort(port);
     }

@@ -13,11 +13,11 @@ public class RemoteRegistry {
         return remoteContactList;
     }
 
-    public ArrayList<Contact> search(String term) {
+    public ArrayList<Contact> search(String query) {
         ArrayList<Contact> searchResult = new ArrayList<>();
         for (Contact contact : remoteContactList) {
-            if (contact.getFirstName().toLowerCase().startsWith(term.toLowerCase()) ||
-                    contact.getLastName().toLowerCase().startsWith(term.toLowerCase())) {
+            if (contact.getFirstName().toLowerCase().startsWith(query.toLowerCase()) ||
+                    contact.getLastName().toLowerCase().startsWith(query.toLowerCase())) {
                 searchResult.add(contact);
             }
         }
