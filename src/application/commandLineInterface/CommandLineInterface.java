@@ -42,6 +42,7 @@ public class CommandLineInterface implements InputHandler {
     public void handle(CommandLine commandLine) {
         try {
             Command command = commandInterpreter.interpret(commandLine);
+            log.info("Command: " + command.getName());
             command.execute();
             log.info("Given command was successfully executed");
         } catch (InvalidParameterException e) {
