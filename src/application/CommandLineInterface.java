@@ -25,10 +25,9 @@ public class CommandLineInterface implements InputHandler {
     private AutoSave autoSave = new AutoSave(registryPersister);
 
     public CommandLineInterface(Application application) {
-        commandInterpreter = new CommandInterpreter(registry, remoteRegistry, registryPersister, application);
-    }
 
-    public void runCommandLineInterface() {
+        commandInterpreter = new CommandInterpreter(registry, remoteRegistry, registryPersister, application);
+
         console.print("Welcome!");
         catalogueLoader.run();
         autoSave.autoSave();

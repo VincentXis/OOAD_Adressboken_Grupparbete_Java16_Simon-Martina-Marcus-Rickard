@@ -7,12 +7,13 @@ public class Application {
     private CommandLineInterface cli;
 
     public Application(){
-        this.cli = new CommandLineInterface(this);
+//        this.cli = new CommandLineInterface(this);
     }
 
     public void start() {
         log.info("Application started");
-        cli.runCommandLineInterface();
+//        cli.runCommandLineInterface();
+        new CommandLineInterface(this);
     }
 
     public void quit() {
