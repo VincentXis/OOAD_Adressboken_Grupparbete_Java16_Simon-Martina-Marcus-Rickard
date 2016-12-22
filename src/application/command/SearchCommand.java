@@ -19,9 +19,6 @@ public class SearchCommand implements Command {
 
     private static final Logger log = Logger.getLogger(SearchCommand.class.getName());
 
-    private String name = "Search";
-    private String description = "Search for contacts";
-
     private Registry registry;
     private RemoteRegistry remoteRegistry;
     private List<String> parameters;
@@ -41,12 +38,12 @@ public class SearchCommand implements Command {
 
     @Override
     public String getName() {
-        return name;
+        return "Search";
     }
 
     @Override
     public String getDescription() {
-        return description;
+        return "Search for contacts";
     }
 
     public void execute() throws InvalidParameterException {
