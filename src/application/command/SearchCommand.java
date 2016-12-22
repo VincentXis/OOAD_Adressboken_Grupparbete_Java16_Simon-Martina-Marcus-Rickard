@@ -56,7 +56,7 @@ public class SearchCommand implements Command {
             try {
                 searchResult.addAll(remoteRegistry.search(parameters.get(0)));
             } catch (Exception e) {
-                log.log(Level.SEVERE, "ERROR ", e);
+                log.log(Level.SEVERE, "Something went wrong when trying to add the remote contacts ", e);
             }
             searchResult = cls.sort(searchResult);
 
@@ -70,6 +70,7 @@ public class SearchCommand implements Command {
                 consolePrinter.print("No matches found");
             }
             log.fine(searchResult.size() + "contact/s found");
+
         } else {
             consolePrinter.print("Search requires 1 parameter, received: " + parameters.size());
             throw new InvalidParameterException("Search requires 1 parameter, received: " + parameters.size());
