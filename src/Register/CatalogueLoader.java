@@ -22,7 +22,7 @@ public class CatalogueLoader {
     public void run() {
         RemoteCatalogueFactory remoteCatalogueFactory = new RemoteCatalogueFactory(61616, this);
         new Thread(() -> {
-            remoteCatalogueFactory.create("localhost");
+            remoteCatalogueFactory.create("172.20.200.165");
         }).start();
     }
 
