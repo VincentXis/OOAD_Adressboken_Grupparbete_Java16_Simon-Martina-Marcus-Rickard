@@ -19,16 +19,16 @@ public class RemoteContact implements Contact {
 
     @Override
     public String getFirstName() {
-        return contactDetails.getFirstName();
+        return this.contactDetails.getFirstName();
     }
 
     @Override
     public String getLastName() {
-        return contactDetails.getLastName();
+        return this.contactDetails.getLastName();
     }
 
     @Override
     public String getEmail() {
-        return contactDetails.getEmail();
+        return this.contactDetails.getEmail();
     }
 }

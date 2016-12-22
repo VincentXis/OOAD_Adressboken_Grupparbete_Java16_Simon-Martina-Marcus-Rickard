@@ -19,21 +19,21 @@ public class LocalContact implements Contact, Serializable {
     }
 
     public String getId() {
-        return id.toString();
+        return this.id.toString();
     }
 
     @Override
     public String getFirstName() {
-        return contactDetails.getFirstName();
+        return this.contactDetails.getFirstName();
     }
 
     @Override
     public String getLastName() {
-        return contactDetails.getLastName();
+        return this.contactDetails.getLastName();
     }
 
     @Override
     public String getEmail() {
-        return contactDetails.getEmail();
+        return this.contactDetails.getEmail();
     }
 }
