@@ -11,7 +11,7 @@ public class HelpCommand implements Command {
     private ConsolePrinter consolePrinter = new Console();
 
     private String format(Command command) {
-        return String.format("%-8s%s", command.getName(), command.getDescription());
+        return String.format(" * %-8s%s", command.getName(), command.getDescription());
     }
 
     @Override
@@ -26,6 +26,9 @@ public class HelpCommand implements Command {
 
     @Override
     public void execute() {
+        String divider = "-------------------------------";
+        consolePrinter.print("List of all available commands:\n"+divider);
         new HelpMenu().getCommands().forEach(command -> consolePrinter.print(format(command)));
+        consolePrinter.print(divider);
     }
 }

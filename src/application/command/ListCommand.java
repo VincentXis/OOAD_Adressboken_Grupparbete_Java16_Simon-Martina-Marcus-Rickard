@@ -42,17 +42,18 @@ public class ListCommand implements Command {
 
     public void execute() throws InvalidParameterException {
         List<Contact> searchResult = new ArrayList<>();
+        String divider = "----------------------------------------";
 
         searchResult.addAll(registry.getContacts());
         searchResult.addAll(remoteRegistry.getContacts());
         searchResult = cls.sort(searchResult);
 
         if (!searchResult.isEmpty()) {
-            for (Contact contact : searchResult) {
-                consolePrinter.print(cf.format(contact));
-            }
-            consolePrinter.print(String.format("Local contacts: %d\nExternal contacts: %d",
-                    registry.getContacts().size(), remoteRegistry.getContacts().size()));
+            consolePrinter.print("\tShowing all available contact/s\n" + divider);
+            searchResult.forEach(contact -> consolePrinter.print(cf.format(contact)));
+
+            consolePrinter.print(String.format("%s\nLocal :%3d\nRemote:%3d\n%s", divider,
+                    registry.getContacts().size(), remoteRegistry.getContacts().size(), divider));
         } else {
             consolePrinter.print("Your contact list is empty");
         }
