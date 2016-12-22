@@ -29,7 +29,7 @@ public class CommandLineInterface implements InputHandler {
         runCommandLineInterface();
     }
 
-    public void runCommandLineInterface() {
+    private void runCommandLineInterface() {
         console.print("Welcome!");
         catalogueLoader.run();
         autoSave.autoSave();
