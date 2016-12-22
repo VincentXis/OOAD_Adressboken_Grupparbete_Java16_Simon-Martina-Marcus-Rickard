@@ -17,6 +17,7 @@ public class QuitCommand implements Command {
     private String name = "Quit";
     private String description = "Quit program";
 
+    private Application application;
     private RegistryPersister registryPersister;
     private ConsolePrinter consolePrinter = new Console();
 
@@ -24,8 +25,9 @@ public class QuitCommand implements Command {
 
     }
 
-    public QuitCommand(RegistryPersister registryPersister) {
+    public QuitCommand(RegistryPersister registryPersister, Application application) {
         this.registryPersister = registryPersister;
+        this.application = application;
     }
 
     @Override
@@ -44,6 +46,6 @@ public class QuitCommand implements Command {
         consolePrinter.print("Saving all local contacts");
         registryPersister.save();
         consolePrinter.print("Goodbye!");
-        new Application().quit();
+        application.quit();
     }
 }
