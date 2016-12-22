@@ -24,10 +24,10 @@ public class CommandLine {
 
         try {
             String[] parseInput = userInput.split(" ");
-            inputCommand = parseInput[0];
 
+            inputCommand = parseInput[0];
             inputParameters.addAll(Arrays.asList(parseInput).subList(1, parseInput.length));
-        } catch (IndexOutOfBoundsException e) {
+        } catch (ArrayIndexOutOfBoundsException e) {
             log.log(Level.SEVERE, "Invalid input", e);
         }
         return new CommandLine(inputCommand, inputParameters);
