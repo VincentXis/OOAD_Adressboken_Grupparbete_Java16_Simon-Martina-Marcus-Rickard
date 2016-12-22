@@ -14,15 +14,11 @@ public class QuitCommand implements Command {
 
     private static final Logger log = Logger.getLogger(QuitCommand.class.getName());
 
-    private String name = "Quit";
-    private String description = "Quit program";
-
     private Application application;
     private RegistryPersister registryPersister;
     private ConsolePrinter consolePrinter = new Console();
 
     public QuitCommand() {
-
     }
 
     public QuitCommand(RegistryPersister registryPersister, Application application) {
@@ -32,12 +28,12 @@ public class QuitCommand implements Command {
 
     @Override
     public String getName() {
-        return name;
+        return "Quit";
     }
 
     @Override
     public String getDescription() {
-        return description;
+        return "Quit program";
     }
 
     @Override

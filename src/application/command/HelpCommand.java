@@ -8,9 +8,6 @@ import application.ConsolePrinter;
  */
 public class HelpCommand implements Command {
 
-    private String name = "Help";
-    private String description = "Show help menu";
-
     private ConsolePrinter consolePrinter = new Console();
 
     private String format(Command command) {
@@ -19,12 +16,12 @@ public class HelpCommand implements Command {
 
     @Override
     public String getName() {
-        return name;
+        return "Help";
     }
 
     @Override
     public String getDescription() {
-        return description;
+        return "Show help menu";
     }
 
     @Override

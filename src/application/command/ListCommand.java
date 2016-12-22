@@ -15,9 +15,6 @@ import java.util.List;
  */
 public class ListCommand implements Command {
 
-    private String name = "List";
-    private String description = "Show contactlist";
-
     private Registry registry;
     private RemoteRegistry remoteRegistry;
     private ContactListSorter cls = new ContactListSorter();
@@ -35,12 +32,12 @@ public class ListCommand implements Command {
 
     @Override
     public String getName() {
-        return name;
+        return "List";
     }
 
     @Override
     public String getDescription() {
-        return description;
+        return "Show contact list";
     }
 
     public void execute() throws InvalidParameterException {
@@ -50,19 +47,15 @@ public class ListCommand implements Command {
         searchResult.addAll(remoteRegistry.getContacts());
         searchResult = cls.sort(searchResult);
 
-
         if (!searchResult.isEmpty()) {
             for (Contact contact : searchResult) {
                 consolePrinter.print(cf.format(contact));
             }
             consolePrinter.print(String.format("Local contacts: %d\nExternal contacts: %d",
-                    registry.getContacts().size(),
-                    remoteRegistry.getContacts().size())
-            );
+                    registry.getContacts().size(), remoteRegistry.getContacts().size()));
         } else {
             consolePrinter.print("Your contact list is empty");
         }
-
     }
 }
 

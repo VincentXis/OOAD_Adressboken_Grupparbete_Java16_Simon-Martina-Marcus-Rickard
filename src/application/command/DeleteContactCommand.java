@@ -12,9 +12,6 @@ import java.util.List;
  */
 public class DeleteContactCommand implements Command {
 
-    private String name = "Delete";
-    private String description = "Delete a contact";
-
     private List<String> parameters;
     private Registry registry;
     private ConsolePrinter consolePrinter = new Console();
@@ -27,15 +24,14 @@ public class DeleteContactCommand implements Command {
     public DeleteContactCommand() {
     }
 
-
     @Override
     public String getName() {
-        return name;
+        return "Delete";
     }
 
     @Override
     public String getDescription() {
-        return description;
+        return "Delete a contact";
     }
 
     @Override

@@ -36,7 +36,8 @@ public class SearchCommand implements Command {
         this.parameters = parameters;
     }
 
-    public SearchCommand() {}
+    public SearchCommand() {
+    }
 
     @Override
     public String getName() {
@@ -64,9 +65,7 @@ public class SearchCommand implements Command {
                     consolePrinter.print(cf.format(contact));
                 }
                 consolePrinter.print(String.format("Local contacts: %d\nExternal contacts: %d",
-                        registry.search(parameters.get(0)).size(),
-                        remoteRegistry.search(parameters.get(0)).size())
-                );
+                        registry.search(parameters.get(0)).size(), remoteRegistry.search(parameters.get(0)).size()));
             } else {
                 consolePrinter.print("No search result found for: " + parameters.get(0));
             }
