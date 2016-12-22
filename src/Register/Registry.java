@@ -1,7 +1,7 @@
 package Register;
 
-import Register.contact.Contact;
-import Register.contact.LocalContact;
+import contact.Contact;
+import contact.LocalContact;
 import application.Console;
 import application.ConsolePrinter;
 

@@ -1,7 +1,7 @@
 package Register;
 
-import Register.contact.Contact;
-import Register.contact.RemoteContact;
+import contact.Contact;
+import contact.RemoteContact;
 
 import java.util.ArrayList;
 

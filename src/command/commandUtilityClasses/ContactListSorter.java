@@ -1,6 +1,6 @@
 package command.commandUtilityClasses;
 
-import Register.contact.Contact;
+import contact.Contact;
 
 import java.util.Comparator;
 import java.util.List;

@@ -1,6 +1,6 @@
 package command.commandUtilityClasses;
 
-import Register.contact.Contact;
+import contact.Contact;
 
 public class ContactFormatter {
 

@@ -2,7 +2,7 @@ package command;
 
 import Register.Registry;
 import Register.RemoteRegistry;
-import Register.contact.Contact;
+import contact.Contact;
 import application.Console;
 import application.ConsolePrinter;
 import command.commandUtilityClasses.ContactFormatter;

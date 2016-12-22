@@ -1,7 +1,7 @@
 package Register.registryFileManagement;
 
 import Register.Registry;
-import Register.contact.Contact;
+import contact.Contact;
 import application.*;
 import application.Console;
 

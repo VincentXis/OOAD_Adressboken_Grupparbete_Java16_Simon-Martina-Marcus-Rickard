@@ -1,4 +1,4 @@
-package Register.contact;
+package contact;
 
 import java.io.Serializable;
 

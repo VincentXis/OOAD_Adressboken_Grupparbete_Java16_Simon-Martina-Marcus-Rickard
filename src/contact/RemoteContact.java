@@ -1,4 +1,7 @@
-package Register.contact;
+package contact;
+
+import contact.Contact;
+import contact.ContactDetails;
 
 public class RemoteContact implements Contact {
 
