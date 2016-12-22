@@ -22,6 +22,7 @@ public class SearchCommand implements Command {
     private Registry registry;
     private RemoteRegistry remoteRegistry;
     private List<String> parameters;
+    private List<Contact> searchResult = new ArrayList<>();
 
     private ConsolePrinter consolePrinter = new Console();
     private ContactFormatter cf = new ContactFormatter();
@@ -36,6 +37,31 @@ public class SearchCommand implements Command {
     public SearchCommand() {
     }
 
+    private void getSearchResult() {
+        searchResult.addAll(registry.search(parameters.get(0)));
+        try {
+            searchResult.addAll(remoteRegistry.search(parameters.get(0)));
+        } catch (Exception e) {
+            log.log(Level.SEVERE, "Something went wrong when trying to add the remote contacts ", e);
+        }
+        searchResult = cls.sort(searchResult);
+    }
+
+    private void showSearchResult() {
+        String divider = "----------------------------------------";
+        consolePrinter.print(String.format("Showing matches to search query: %s\n%s", parameters.get(0), divider));
+
+        if (!searchResult.isEmpty()) {
+            searchResult.forEach(contact -> consolePrinter.print(cf.format(contact)));
+
+            consolePrinter.print(String.format("%s\nFound\tLocal:%3d\tRemote:%3d\n%s",
+                    divider, registry.search(parameters.get(0)).size(), remoteRegistry.search(parameters.get(0)).size(), divider));
+        } else {
+            consolePrinter.print("No matches found");
+        }
+        log.fine(searchResult.size() + "contact/s found");
+    }
+
     @Override
     public String getName() {
         return "Search";
@@ -47,30 +73,10 @@ public class SearchCommand implements Command {
     }
 
     public void execute() throws InvalidParameterException {
-        List<Contact> searchResult = new ArrayList<>();
-        String divider = "----------------------------------------";
-        consolePrinter.print(String.format("Showing matches to search query: %s\n%s", parameters.get(0), divider));
 
         if (validate()) {
-            searchResult.addAll(registry.search(parameters.get(0)));
-            try {
-                searchResult.addAll(remoteRegistry.search(parameters.get(0)));
-            } catch (Exception e) {
-                log.log(Level.SEVERE, "Something went wrong when trying to add the remote contacts ", e);
-            }
-            searchResult = cls.sort(searchResult);
-
-            if (!searchResult.isEmpty()) {
-                searchResult.forEach(contact -> consolePrinter.print(cf.format(contact)));
-
-                consolePrinter.print(String.format("%s\nFound\tLocal:%3d\tRemote:%3d\n%s",
-                        divider, registry.search(parameters.get(0)).size(),
-                        remoteRegistry.search(parameters.get(0)).size(), divider));
-            } else {
-                consolePrinter.print("No matches found");
-            }
-            log.fine(searchResult.size() + "contact/s found");
-
+            getSearchResult();
+            showSearchResult();
         } else {
             consolePrinter.print("Search requires 1 parameter, received: " + parameters.size());
             throw new InvalidParameterException("Search requires 1 parameter, received: " + parameters.size());
