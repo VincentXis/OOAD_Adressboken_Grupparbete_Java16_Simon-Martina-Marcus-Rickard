@@ -48,6 +48,9 @@ public class SearchCommand implements Command {
 
     public void execute() throws InvalidParameterException {
         List<Contact> searchResult = new ArrayList<>();
+        String divider = "----------------------------------------";
+        consolePrinter.print(String.format("Showing matches to search query: %s\n%s", parameters.get(0), divider));
+
         if (validate()) {
             searchResult.addAll(registry.search(parameters.get(0)));
             try {
@@ -58,13 +61,13 @@ public class SearchCommand implements Command {
             searchResult = cls.sort(searchResult);
 
             if (!searchResult.isEmpty()) {
-                for (Contact contact : searchResult) {
-                    consolePrinter.print(cf.format(contact));
-                }
-                consolePrinter.print(String.format("Local contacts: %d\nExternal contacts: %d",
-                        registry.search(parameters.get(0)).size(), remoteRegistry.search(parameters.get(0)).size()));
+                searchResult.forEach(contact -> consolePrinter.print(cf.format(contact)));
+
+                consolePrinter.print(String.format("%s\nFound\tLocal:%3d\tRemote:%3d\n%s",
+                        divider, registry.search(parameters.get(0)).size(),
+                        remoteRegistry.search(parameters.get(0)).size(), divider));
             } else {
-                consolePrinter.print("No search result found for: " + parameters.get(0));
+                consolePrinter.print("No matches found");
             }
             log.fine(searchResult.size() + "contact/s found");
         } else {

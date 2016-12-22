@@ -52,7 +52,7 @@ public class ListCommand implements Command {
             consolePrinter.print("\tShowing all available contact/s\n" + divider);
             searchResult.forEach(contact -> consolePrinter.print(cf.format(contact)));
 
-            consolePrinter.print(String.format("%s\nLocal :%3d\nRemote:%3d\n%s", divider,
+            consolePrinter.print(String.format("%s\nList contains\tLocal:%3d\tRemote:%3d\n%s", divider,
                     registry.getContacts().size(), remoteRegistry.getContacts().size(), divider));
         } else {
             consolePrinter.print("Your contact list is empty");
