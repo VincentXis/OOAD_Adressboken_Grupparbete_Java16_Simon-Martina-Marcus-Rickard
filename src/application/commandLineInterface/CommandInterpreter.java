@@ -1,5 +1,6 @@
-package application;
+package application.commandLineInterface;
 
+import application.Application;
 import register.Registry;
 import register.RemoteRegistry;
 import register.registryFileManagement.RegistryPersister;

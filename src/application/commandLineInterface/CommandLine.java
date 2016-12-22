@@ -1,4 +1,4 @@
-package application;
+package application.commandLineInterface;
 
 import java.util.ArrayList;
 import java.util.Arrays;

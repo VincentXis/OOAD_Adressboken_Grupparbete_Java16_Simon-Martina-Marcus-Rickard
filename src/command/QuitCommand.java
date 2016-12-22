@@ -2,8 +2,8 @@ package command;
 
 import register.registryFileManagement.RegistryPersister;
 import application.Application;
-import application.Console;
-import application.ConsolePrinter;
+import application.commandLineInterface.console.Console;
+import application.commandLineInterface.console.ConsolePrinter;
 
 import java.util.logging.Logger;
 

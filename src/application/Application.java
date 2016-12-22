@@ -1,5 +1,7 @@
 package application;
 
+import application.commandLineInterface.CommandLineInterface;
+
 import java.util.logging.Logger;
 
 public class Application {

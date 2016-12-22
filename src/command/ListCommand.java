@@ -3,8 +3,8 @@ package command;
 import register.Registry;
 import register.RemoteRegistry;
 import contact.Contact;
-import application.Console;
-import application.ConsolePrinter;
+import application.commandLineInterface.console.Console;
+import application.commandLineInterface.console.ConsolePrinter;
 import command.commandUtilityClasses.ContactFormatter;
 import command.commandUtilityClasses.ContactListSorter;
 

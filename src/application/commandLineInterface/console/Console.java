@@ -1,4 +1,7 @@
-package application;
+package application.commandLineInterface.console;
+
+import application.commandLineInterface.CommandLine;
+import application.commandLineInterface.InputHandler;
 
 import java.util.Scanner;
 import java.util.logging.Logger;

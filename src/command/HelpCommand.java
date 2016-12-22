@@ -1,7 +1,7 @@
 package command;
 
-import application.Console;
-import application.ConsolePrinter;
+import application.commandLineInterface.console.Console;
+import application.commandLineInterface.console.ConsolePrinter;
 import command.commandUtilityClasses.HelpMenu;
 
 /**

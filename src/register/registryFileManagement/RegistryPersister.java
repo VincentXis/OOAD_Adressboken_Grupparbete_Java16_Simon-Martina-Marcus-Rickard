@@ -1,9 +1,9 @@
 package register.registryFileManagement;
 
+import application.commandLineInterface.console.ConsolePrinter;
 import register.Registry;
 import contact.Contact;
-import application.*;
-import application.Console;
+import application.commandLineInterface.console.Console;
 
 import java.io.*;
 import java.util.ArrayList;

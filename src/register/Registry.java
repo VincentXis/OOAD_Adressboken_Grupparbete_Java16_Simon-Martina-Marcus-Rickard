@@ -2,8 +2,8 @@ package register;
 
 import contact.Contact;
 import contact.LocalContact;
-import application.Console;
-import application.ConsolePrinter;
+import application.commandLineInterface.console.Console;
+import application.commandLineInterface.console.ConsolePrinter;
 
 import java.util.ArrayList;
 import java.util.logging.Logger;

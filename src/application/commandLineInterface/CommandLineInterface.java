@@ -1,5 +1,7 @@
-package application;
+package application.commandLineInterface;
 
+import application.Application;
+import application.commandLineInterface.console.Console;
 import register.CatalogueLoader;
 import register.Registry;
 import register.RemoteRegistry;

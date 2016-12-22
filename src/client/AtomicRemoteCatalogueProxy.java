@@ -1,6 +1,6 @@
 package client;
 
-import application.Console;
+import application.commandLineInterface.console.Console;
 
 import java.util.Arrays;
 import java.util.List;

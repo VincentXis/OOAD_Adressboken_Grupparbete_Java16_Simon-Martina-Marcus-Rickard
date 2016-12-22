@@ -1,7 +1,7 @@
 package register.registryFileManagement;
 
-import application.Console;
-import application.ConsolePrinter;
+import application.commandLineInterface.console.Console;
+import application.commandLineInterface.console.ConsolePrinter;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
