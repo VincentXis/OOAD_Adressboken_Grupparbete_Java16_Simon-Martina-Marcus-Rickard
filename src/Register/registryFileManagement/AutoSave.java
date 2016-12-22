@@ -1,4 +1,4 @@
-package Register.contactFileManagement;
+package Register.registryFileManagement;
 
 import application.Console;
 import application.ConsolePrinter;

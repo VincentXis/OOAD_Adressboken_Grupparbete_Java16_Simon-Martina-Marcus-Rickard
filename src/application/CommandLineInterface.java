@@ -3,8 +3,8 @@ package application;
 import Register.CatalogueLoader;
 import Register.Registry;
 import Register.RemoteRegistry;
-import Register.contactFileManagement.AutoSave;
-import Register.contactFileManagement.RegistryPersister;
+import Register.registryFileManagement.AutoSave;
+import Register.registryFileManagement.RegistryPersister;
 import command.Command;
 
 import java.security.InvalidParameterException;
