@@ -49,12 +49,32 @@ public class ListCommand implements Command {
         searchResult.addAll(registry.getContacts());
         searchResult.addAll(remoteRegistry.getContacts());
         searchResult = cls.sort(searchResult);
-        if(searchResult.isEmpty()){
+
+
+        if (!searchResult.isEmpty()) {
+            for (Contact contact : searchResult) {
+                consolePrinter.print(cf.format(contact));
+            }
+            consolePrinter.print(String.format("Local contacts: %d\nExternal contacts: %d",
+                    registry.getContacts().size(),
+                    remoteRegistry.getContacts().size())
+            );
+        } else {
             consolePrinter.print("Your contact list is empty");
-        }
-        for (Contact contact : searchResult) {
-            consolePrinter.print(cf.format(contact));
         }
 
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
