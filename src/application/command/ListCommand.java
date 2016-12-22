@@ -49,6 +49,9 @@ public class ListCommand implements Command {
         searchResult.addAll(registry.getContacts());
         searchResult.addAll(remoteRegistry.getContacts());
         searchResult = cls.sort(searchResult);
+        if(searchResult.isEmpty()){
+            consolePrinter.print("Your contact list is empty");
+        }
         for (Contact contact : searchResult) {
             consolePrinter.print(cf.format(contact));
         }
